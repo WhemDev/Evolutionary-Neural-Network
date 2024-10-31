@@ -8,6 +8,7 @@ class Neuron:
         self.name = name
         self.value = 0.0
         self.connections = []
+        self.weigt = 0.0
         self.input_function = input_function  # Özel giriş fonksiyonu
 
     def connect(self, target_neuron, weight):

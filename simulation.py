@@ -11,7 +11,8 @@ step_size = 1
 in_rects_count = 0
 
 # Ajanları oluşturma
-agents = [Agent(['Lx', 'Ly'], ['Mrn', 'Mrv']) for _ in range(num_agents)]
+agents = [Agent(['Lx', 'Ly'], ["Mfd", "Mrn", "Mrv", "MX", "MY"]) for _ in range(num_agents)]
+all_positions = {(agent.X, agent.Y) for agent in agents}
 
 # Grafik ve yazı alanı için iki eksen oluşturma
 fig, (ax, ax_text) = plt.subplots(1, 2, figsize=(8, 5), gridspec_kw={'width_ratios': [3, 1]})
@@ -45,7 +46,7 @@ def update(frame):
 
     # Her ajanın sinir ağını güncelle ve pozisyonunu değiştir
     for agent in agents:
-        agent.update()  # Neural network activation and position update
+        agent.update(all_positions)  # Neural network activation and position update
 
     # Yeni pozisyonları scatter grafiğine ayarla
     scat.set_offsets([(agent.X, agent.Y) for agent in agents])

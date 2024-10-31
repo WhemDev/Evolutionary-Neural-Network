@@ -41,10 +41,10 @@ class Rnd(Neuron):
 class Lx(Neuron):
     def __init__(self, name, type):
         super().__init__("Lx",'input', name)
-        # self.location = s
+        self.value = 0
 
 class Ly(Neuron):
     def __init__(self, name, type):
         super().__init__("Ly",'input', name)
-        # self.location = s
+        self.value = 0
 

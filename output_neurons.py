@@ -12,8 +12,15 @@ from neurons import *
 class Mfd(Neuron):
     def __init__(self, name,type="Output", input = 0):
         super().__init__("Mfd","Output")
-        self.input = input
-        if np.where(input): self.activate
+        totalWeight = 0
+        count = 0
+        for connection in self.connections:
+            count+=1
+            totalWeight += connection[1]
+
+        self.weigt = totalWeight/count
+        
+        if np.where(self.weight): self.activate
     def activate(self):
         self.value = np.where(input)
 
