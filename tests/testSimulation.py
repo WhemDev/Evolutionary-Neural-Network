@@ -6,13 +6,34 @@ from test import Agent
 import random
 
 # Simülasyon Parametreleri
-grid_size = 128
-num_agents = 960
+grid_size = 64
+num_agents = 240
 in_rects_count = 0
 
 # Ajanları oluşturma
 agents = [Agent(random.randint(0, grid_size - 1), random.randint(0, grid_size - 1)) for _ in range(num_agents)]
-all_positions = {(agent.X, agent.Y) for agent in agents}
+
+# Gerçek simülasyon verilerini hesaplayan yardımcı fonksiyonlar
+def calculate_blockage(agent, direction):
+    """Agent'ın çevresindeki engelleri kontrol eder."""
+    if direction == "left":
+        return -4 if agent.X == 0 else 4  # Sol sınırda mı?
+    elif direction == "right":
+        return -4 if agent.X == grid_size - 1 else 4  # Sağ sınırda mı?
+    elif direction == "forward":
+        return -4 if agent.Y == grid_size - 1 else 4  # İleri sınırda mı?
+
+def calculate_population_gradient(agent):
+    """Agent'ın çevresindeki diğer agent'ların yoğunluğunu hesaplar."""
+    left_count = sum(1 for a in agents if a.X < agent.X)
+    right_count = sum(1 for a in agents if a.X > agent.X)
+    forward_count = sum(1 for a in agents if a.Y > agent.Y)
+    
+    # Sol-sağ gradyan ve ileri gradyan
+    plr = right_count - left_count
+    pfd = forward_count
+    print("near agent count : ", plr / num_agents * 8, pfd / num_agents * 8 )
+    return plr / num_agents * 8, pfd / num_agents * 8  # Normalize et
 
 # Grafik ve yazı alanı için iki eksen oluşturma
 fig, (ax, ax_text) = plt.subplots(1, 2, figsize=(8, 5), gridspec_kw={'width_ratios': [3, 1]})
@@ -29,8 +50,8 @@ ax_text.axis('off')
 text = ax_text.text(0.1, 0.7, '', transform=ax_text.transAxes, va='center', ha='left', fontsize=12)
 
 # Sağ tarafta yeşil dikdörtgen ekleme
-background_rect = Rectangle((113, 0), 15, 128, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
-background_rect1 = Rectangle((0, 0), 15, 128, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
+background_rect = Rectangle((57, 0), 7, grid_size, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
+background_rect1 = Rectangle((0, 0), 7, grid_size, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
 ax.add_patch(background_rect)
 ax.add_patch(background_rect1)
 
@@ -41,39 +62,42 @@ text.set_text(text_template.format(current_frame, num_agents, grid_size, grid_si
 
 # Güncelleme fonksiyonu
 def update(frame):
-    global agents, current_frame, all_positions
+    global agents, current_frame, in_rects_count
     current_frame = frame
 
     # Her ajanın sinir ağını güncelle ve pozisyonunu değiştir
     for agent in agents:
-        # Simülasyon verilerini oluştur (örnek olarak rastgele değerler kullanıyoruz)
+        # Gerçek simülasyon verilerini hesapla
+        plr, pfd = calculate_population_gradient(agent)
         simulation_data = {
-            'Age': random.uniform(0, 100),
-            'Blr': random.uniform(-4, 4),
-            'Bfd': random.uniform(-4, 4),
-            'Plr': random.uniform(-4, 4),
-            'Pfd': random.uniform(-4, 4),
-            'LMy': random.uniform(-4, 4),
-            'LMx': random.uniform(-4, 4),
-            'BDy': random.uniform(-4, 4),
-            'BDx': random.uniform(-4, 4),
-            'Gen': random.uniform(-4, 4),
-            'BDd': random.uniform(-4, 4),
-            'LPf': random.uniform(-4, 4)
+            'Age': frame,  # -4.0 => frame 0; 4.0 => frame 200
+            'Blr': calculate_blockage(agent, "left"),
+            'Bfd': calculate_blockage(agent, "forward"),
+            'Plr': plr,
+            'Pfd': pfd,
+            'LMy': agent.last_move_y,
+            'LMx': agent.last_move_x,
+            'BDy': agent.Y - (grid_size // 2),  # Kuzey-güney sınır mesafesi
+            'BDx': agent.X - (grid_size // 2),  # Doğu-batı sınır mesafesi
+            'Gen': random.uniform(-4, 4),  # Genetik benzerlik (örnek veri)
+            'BDd': min(agent.Y, grid_size - agent.Y, agent.X, grid_size - agent.X),  # En yakın sınır mesafesi
+            'LPf': calculate_blockage(agent, "forward")
         }
-        agent.update(simulation_data)  # Neural network activation and position update
+        agent.update(simulation_data)  # Neural network aktivasyonu ve pozisyon güncellemesi
 
     # Yeni pozisyonları scatter grafiğine ayarla
     scat.set_offsets([(agent.X, agent.Y) for agent in agents])
 
     # Dikdörtgen içindeki ajanları say
-    in_left_rect = sum((0 <= agent.X <= 15 and 0 <= agent.Y <= 128) for agent in agents)
-    in_right_rect = sum((113 <= agent.X <= 128 and 0 <= agent.Y <= 128) for agent in agents)
+    in_left_rect = sum(0 <= agent.X <= 7 for agent in agents)
+    in_right_rect = sum(57 <= agent.X < 64 for agent in agents)
     in_rects_count = in_left_rect + in_right_rect
 
     # Yazı alanındaki statları güncelle
     text.set_text(text_template.format(current_frame, num_agents, grid_size, grid_size, in_rects_count))
 
+# Animasyonu oluştur
 ani = FuncAnimation(fig, update, frames=200, interval=100)
 
+# Grafiği göster
 plt.show()
