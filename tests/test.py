@@ -36,6 +36,7 @@ class Neuron:
 # Neural Network sınıfı
 class NeuralNetwork:
     def __init__(self, input_neurons, internal_neurons, output_neurons):
+        # Define Neurons
         self.input_neurons = input_neurons
         self.internal_neurons = internal_neurons
         self.output_neurons = output_neurons
@@ -43,11 +44,12 @@ class NeuralNetwork:
         self.create_limited_connections()
 
     def create_limited_connections(self):
-        max_total_connections = 12  # Toplamda en fazla 12 bağlantı
+        max_total_connections = 12  # Maximum possible connection count
         total_connections = 0
 
         # Output nöronlarına bağlantılar oluştur
         for output_neuron in self.output_neurons:
+            # Check connection count
             if total_connections >= max_total_connections:
                 break
             # Rastgele bir input veya internal nöron seç ve bağlan
@@ -96,7 +98,7 @@ class Agent:
         self.last_move_x = 0
         self.last_move_y = 0
 
-        # Input nöronlarını oluştur
+        # Input neurons
         input_neurons = [
             Neuron('input', 'Lx'), Neuron('input', 'Ly'), Neuron('input', 'Age'),
             Neuron('input', 'Rnd'), Neuron('input', 'Blr'), Neuron('input', 'Bfd'),
@@ -105,16 +107,16 @@ class Agent:
             Neuron('input', 'Gen'), Neuron('input', 'BDd'), Neuron('input', 'LPf')
         ]
 
-        # 3 internal nöron
-        internal_neurons = [Neuron('internal', f'H{i}') for i in range(3)]
+        # 3 internal neurons
+        internal_neurons = [Neuron('internal', f'N{i}') for i in range(3)]
 
-        # Output nöronlarını oluştur
+        # Output/Action neurons
         output_neurons = [
             Neuron('output', 'Mfd'), Neuron('output', 'Mrn'), Neuron('output', 'Mrv'),
             Neuron('output', 'MX'), Neuron('output', 'MY')
         ]
 
-        # Neural Network oluştur
+        # ! Create Neural Network
         self.network = NeuralNetwork(input_neurons, internal_neurons, output_neurons)
 
     def update(self, simulation_data):

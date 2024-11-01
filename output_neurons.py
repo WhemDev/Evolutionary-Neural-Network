@@ -8,6 +8,12 @@
 import numpy as np
 from neurons import *
 
+
+# ! DONT USE 
+# ! EDIT /TEST FOLDER
+
+
+
 # Mfd - move forward
 class Mfd(Neuron):
     def __init__(self, name,type="Output", input = 0):

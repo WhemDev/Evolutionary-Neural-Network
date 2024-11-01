@@ -1,6 +1,12 @@
 import numpy as np
 import random
 
+
+# ! DONT USE 
+# ! EDIT /TEST FOLDER
+
+
+
 # Nöron sınıfı
 class Neuron:
     def __init__(self, neuron_type, name, input_function=None):

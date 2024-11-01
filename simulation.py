@@ -4,6 +4,12 @@ from matplotlib.animation import FuncAnimation
 from matplotlib.patches import Rectangle
 from agent import Agent
 
+
+# ! DONT USE 
+# ! EDIT /TEST FOLDER
+
+
+
 # Simülasyon Parametreleri
 grid_size = 128
 num_agents = 960

@@ -22,6 +22,10 @@ from neurons import *
 from input_neurons import *
 
 
+# ! DONT USE 
+# ! EDIT /TEST FOLDER
+
+
 class Age(Neuron):
     def __init__(self, name,type, age_value):
         super().__init__("Age", 'input', name)

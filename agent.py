@@ -3,6 +3,11 @@ import random
 from input_neurons import *
 from output_neurons import *
 
+
+# ! DONT USE 
+# ! EDIT /TEST FOLDER
+
+
 class Agent:
     def __init__(self, input_names, output_names, internal_count=1):
         self.spawnX = random.randint(0, 128)
