@@ -101,8 +101,11 @@ class NeuralNetwork:
             print("NEURON NAME : ", neuron.name)
             print("NEURON TYPE : ", neuron.neuron_type)
             print("NEURON VALUE : ", neuron.value)
-            print("NEURON CONNECTIONS : ")
+            print("NEURON SENDED CONNECTIONS : ")
             for connection in neuron.connections:
+                print("Connected to :", connection[0].name, "\nwith the weight of : ", connection[1])
+            print("NEURON RECIEVED CONNECTIONS : ")
+            for connection in neuron.recievedConnections:
                 print("Connected to :", connection[0].name, "\nwith the weight of : ", connection[1])
             print("---------------------------------")
 
