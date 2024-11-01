@@ -17,6 +17,8 @@ class Neuron:
         self.name = name
         self.value = 0.0
         self.connections = []
+        self.totalInputsSum = 0.0
+        self.totalInputsCount = len(self.connections)
 
     def connect(self, target_neuron, weight):
         self.connections.append((target_neuron, weight))
@@ -60,27 +62,16 @@ class NeuralNetwork:
         default_connection_sender_neuron.connect(default_connection_output_neuron, random.uniform(-4.0, 4.0))
 
         for i in range(target_connection_count - 1):
-            print()
-
-        # Output nöronlarına bağlantılar oluştur
-        for output_neuron in self.output_neurons:
-            # Check connection count
-            if total_connections >= max_total_connections:
-                break
-            # Rastgele bir input veya internal nöron seç ve bağlan
             source_neuron = np.random.choice(self.input_neurons + self.internal_neurons)
-            weight = np.clip(source_neuron.value * 4.0, -4.0, 4.0)  # Ağırlık kaynağın değerine göre
-            source_neuron.connect(output_neuron, weight)
-            total_connections += 1
-
-        # Input ve internal nöronlar arasında kalan bağlantıları oluştur
-        for neuron in self.input_neurons + self.internal_neurons:
-            if total_connections >= max_total_connections:
-                break
-            # Rastgele bir hedef internal veya output nöronu seç
-            target_neuron = np.random.choice(self.internal_neurons + self.output_neurons)
-            weight = np.random.uniform(-4.0, 4.0)  # Rastgele ağırlıklar
-            neuron.connect(target_neuron, weight)
+            if source_neuron.neuron_type == "input":
+                target_neuron = np.random.choice(self.output_neurons + self.internal_neurons)
+            elif source_neuron.neuron_type == "internal":
+                target_neuron = np.random.choice(self.output_neurons + self.internal_neurons - source_neuron)
+            weight = random.uniform(-4.0, 4.0)
+            # connect the neurons : 
+            source_neuron.connect(target_neuron, weight)
+            # add the multiplied value to the source
+            source_neuron.totalInputsSum = weight * target_neuron.value
             total_connections += 1
 
         self.total_connections = total_connections
@@ -132,6 +123,10 @@ class Agent:
 
         # 3 internal neurons
         internal_neurons = [Neuron('internal', f'N{i}') for i in range(3)]
+
+        # assing the default internal neuron value (1.0)
+        for internal in internal_neurons:
+            internal.value = 1.0
 
         # Output/Action neurons
         output_neurons = [
