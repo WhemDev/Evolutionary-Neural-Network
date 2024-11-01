@@ -67,8 +67,30 @@ class NeuralNetwork:
         default_connection_output_neuron.recievedConnections.append((default_connection_sender_neuron, weight))
         default_connection_output_neuron.totalInputsSum += weight * default_connection_sender_neuron.value
 
-        for i in range(target_connection_count - 1):
+        #for i in range(target_connection_count - 1):
+            
+            #source_neuron = np.random.choice(self.input_neurons + self.internal_neurons)
+
+            #possible_neurons = []
+
+            #if source_neuron.neuron_type == "input":
+            #    target_neuron = np.random.choice(self.output_neurons + self.internal_neurons)
+            #elif source_neuron.neuron_type == "internal":
+            #    combined_except_source = [x for x in (self.output_neurons + self.internal_neurons) if x != source_neuron]
+            #    target_neuron = np.random.choice(combined_except_source)
+            #weight = random.uniform(-4.0, 4.0)
+
+            ## connect the neurons : 
+            #source_neuron.connect(target_neuron, weight)
+            #target_neuron.recievedConnections.append((target_neuron, weight))
+            #
+            ## add the multiplied value to the source
+            #target_neuron.totalInputsSum += weight * target_neuron.value
+            #total_connections += 1
+        a = 0
+        while True:
             source_neuron = np.random.choice(self.input_neurons + self.internal_neurons)
+
             if source_neuron.neuron_type == "input":
                 target_neuron = np.random.choice(self.output_neurons + self.internal_neurons)
             elif source_neuron.neuron_type == "internal":
@@ -76,13 +98,26 @@ class NeuralNetwork:
                 target_neuron = np.random.choice(combined_except_source)
             weight = random.uniform(-4.0, 4.0)
 
-            # connect the neurons : 
-            source_neuron.connect(target_neuron, weight)
-            target_neuron.recievedConnections.append((target_neuron, weight))
+            targetCon = []
+            for con in target_neuron.connections:
+                targetCon.append(con[0])
 
-            # add the multiplied value to the source
-            target_neuron.totalInputsSum += weight * target_neuron.value
-            total_connections += 1
+            if (source_neuron not in targetCon) and (source_neuron != target_neuron):
+                # connect the neurons : 
+                print("source neuron name : ", source_neuron.name, source_neuron)
+                print("target neuron name : ", target_neuron.name, target_neuron)
+                print("target neuron cons : ", targetCon)
+                
+                source_neuron.connect(target_neuron, weight)
+                target_neuron.recievedConnections.append((target_neuron, weight))
+
+                # add the multiplied value to the source
+                target_neuron.totalInputsSum += weight * target_neuron.value
+                total_connections += 1
+                print("\n\n\nCONNECTION  :  ", source_neuron.name, target_neuron.name, "\n\n\n")
+            a += 1
+            if a == 10: break
+            if total_connections == target_connection_count-1: break
 
         self.total_connections = total_connections
 
