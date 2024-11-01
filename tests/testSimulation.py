@@ -12,7 +12,7 @@ in_rects_count = 0
 
 # Ajanları oluşturma
 agents = [Agent(random.randint(0, grid_size - 1), random.randint(0, grid_size - 1)) for _ in range(num_agents)]
-
+all_positions = {(agent.X, agent.Y) for agent in agents}
 # Gerçek simülasyon verilerini hesaplayan yardımcı fonksiyonlar
 def calculate_blockage(agent, direction):
     """Agent'ın çevresindeki engelleri kontrol eder."""
@@ -67,8 +67,12 @@ def update(frame):
 
     # Her ajanın sinir ağını güncelle ve pozisyonunu değiştir
     for agent in agents:
+        # Get creature positions
+        all_positions = {(agent.X, agent.Y) for agent in agents}
+
         # Gerçek simülasyon verilerini hesapla
         plr, pfd = calculate_population_gradient(agent)
+
         simulation_data = {
             'Age': frame,  # -4.0 => frame 0; 4.0 => frame 200
             'Blr': calculate_blockage(agent, "left"),
@@ -81,7 +85,10 @@ def update(frame):
             'BDx': agent.X - (grid_size // 2),  # Doğu-batı sınır mesafesi
             'Gen': random.uniform(-4, 4),  # Genetik benzerlik (örnek veri)
             'BDd': min(agent.Y, grid_size - agent.Y, agent.X, grid_size - agent.X),  # En yakın sınır mesafesi
-            'LPf': calculate_blockage(agent, "forward")
+            'LPf': calculate_blockage(agent, "forward"),
+            'Lx': 0.5,
+            'Ly': 0.5,
+            'Rnd': 0.5,
         }
         agent.update(simulation_data)  # Neural network aktivasyonu ve pozisyon güncellemesi
 
