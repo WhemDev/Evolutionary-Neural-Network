@@ -1,5 +1,7 @@
 import numpy as np
 
+# TODO Remake the neuron connections and value assigning amk
+
 # Nöron sınıfı
 class Neuron:
     def __init__(self, neuron_type, name):
