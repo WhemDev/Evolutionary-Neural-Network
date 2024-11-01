@@ -94,7 +94,13 @@ class NeuralNetwork:
         for neuron in self.all_neurons:
             # Old method : 
             # neuron.print_debug_info(self.output_neurons)
-            print(neuron.connections)
+            print("NEURON NAME : ", neuron.name)
+            print("NEURON TYPE : ", neuron.neuron_type)
+            print("NEURON VALUE : ", neuron.value)
+            print("NEURON CONNECTIONS : ")
+            for connection in neuron.connections:
+                print("Connected to :", connection[0].name, "with the weight of : ", connection[1])
+            print("---------------------------------")
 
 # Agent sınıfı
 class Agent:
