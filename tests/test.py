@@ -109,12 +109,14 @@ class NeuralNetwork:
                 print("target neuron cons : ", targetCon)
                 
                 source_neuron.connect(target_neuron, weight)
-                target_neuron.recievedConnections.append((target_neuron, weight))
+                target_neuron.recievedConnections.append((source_neuron, weight))
 
                 # add the multiplied value to the source
-                target_neuron.totalInputsSum += weight * target_neuron.value
+                # ! check the totalInputsSum 
+                target_neuron.totalInputsSum += weight * source_neuron.value
                 total_connections += 1
-                print("\n\n\nCONNECTION  :  ", source_neuron.name, target_neuron.name, "\n\n\n")
+                print("\n\n\nCONNECTION  :  ", source_neuron.name, target_neuron.name, "\n\n", source_neuron.connections,"\n\n")
+                
             a += 1
             if a == 10: break
             if total_connections == target_connection_count-1: break
