@@ -1,7 +1,7 @@
 import numpy as np
 
 # TODO Remake the neuron connections and value assigning amk
-# * 1.  Inputların ürettiği/sahip olduğu değerleri 0.0 ila 1.0 arasında olmasını sağla.
+#   1.  DONE    Inputların ürettiği/sahip olduğu değerleri 0.0 ila 1.0 arasında olmasını sağla.
 # * 2.  Neural connectionları oluştur : En fazla 12 connection olabilir. 
 # * 3.  Calculate Connection values : Connection weight -4.0 to 4.0 * neuron output (Exp. Input neuron output => 0.4 * 3.4 <= Connection weight)
 # * 4.  Calculate Internal and Action neuron's recieved values => tanh(sum(inputs)) => -1.0 to 1.0
@@ -28,12 +28,14 @@ class Neuron:
             self.value = np.tanh(total_input)  # -1.0 ile 1.0 arasında çıktı
 
     # Bağlantıları, ağırlıkları ve kendi değerini yazdırmak için bir fonksiyon
-    def print_debug_info(self, output_neurons):
-        output_connections = [conn for conn in self.connections if conn[0] in output_neurons]
-        if output_connections:
-            print(f"Neuron {self.name}: Value = {self.value}")
-            for target_neuron, weight in output_connections:
-                print(f"  -> Connected to {target_neuron.name} with weight {weight}")
+    #
+    # def print_debug_info(self, output_neurons):
+    #    output_connections = [conn for conn in self.connections if conn[0] in output_neurons]
+    #    if output_connections:
+    #        print(f"Neuron {self.name}: Value = {self.value}")
+    #        for target_neuron, weight in output_connections:
+    #            print(f"  -> Connected to {target_neuron.name} with weight {weight}")
+
 
 # Neural Network sınıfı
 class NeuralNetwork:
@@ -88,9 +90,11 @@ class NeuralNetwork:
     # Debugging için toplam bağlantı sayısını ve output nöronlarına bağlantıları yazdır
     def print_debug_info(self):
         print(f"Total Connections: {self.total_connections}")
-        print("Output Neuron Connections:")
+        print("All Neuron Connections:")
         for neuron in self.all_neurons:
-            neuron.print_debug_info(self.output_neurons)
+            # Old method : 
+            # neuron.print_debug_info(self.output_neurons)
+            print(neuron.connections)
 
 # Agent sınıfı
 class Agent:
@@ -126,7 +130,7 @@ class Agent:
         self.network.feed_forward()
 
         # Debugging: Toplam bağlantı sayısını ve output nöronlarına bağlantıları yazdır
-        self.network.print_debug_info()
+        # self.network.print_debug_info()
 
         output_values = self.network.get_output_values()
         self.move(output_values)
@@ -171,4 +175,4 @@ simulation_data = {
 
 # Agent'ı oluştur ve güncelle
 agent = Agent(10, 20)
-agent.update(simulation_data)
+agent.network.print_debug_info()
