@@ -1,4 +1,5 @@
 import numpy as np
+import random
 
 # TODO Remake the neuron connections and value assigning amk
 #   1.  DONE    Inputların ürettiği/sahip olduğu değerleri 0.0 ila 1.0 arasında olmasını sağla.
@@ -50,6 +51,16 @@ class NeuralNetwork:
     def create_limited_connections(self):
         max_total_connections = 12  # Maximum possible connection count
         total_connections = 0
+        
+        target_connection_count = random.randint(1, 12)
+
+        # ! Default Connection: Atleast one connection with the target of a output neuron has to be connected
+        default_connection_output_neuron = np.random.choice(self.output_neurons)
+        default_connection_sender_neuron = np.random.choice(self.input_neurons + self.internal_neurons)
+        default_connection_sender_neuron.connect(default_connection_output_neuron, random.uniform(-4.0, 4.0))
+
+        for i in range(target_connection_count - 1):
+            print()
 
         # Output nöronlarına bağlantılar oluştur
         for output_neuron in self.output_neurons:
@@ -99,7 +110,7 @@ class NeuralNetwork:
             print("NEURON VALUE : ", neuron.value)
             print("NEURON CONNECTIONS : ")
             for connection in neuron.connections:
-                print("Connected to :", connection[0].name, "with the weight of : ", connection[1])
+                print("Connected to :", connection[0].name, "\nwith the weight of : ", connection[1])
             print("---------------------------------")
 
 # Agent sınıfı
