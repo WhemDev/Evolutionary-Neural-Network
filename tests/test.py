@@ -4,6 +4,7 @@ import random
 # TODO Remake the neuron connections and value assigning amk
 #   1.  DONE    Inputların ürettiği/sahip olduğu değerleri 0.0 ila 1.0 arasında olmasını sağla.
 # * 2.  Neural connectionları oluştur : En fazla 12 connection olabilir. 
+# ! 2.1 Pay attention to not to connect to neurons multiple times
 # * 3.  Calculate Connection values : Connection weight -4.0 to 4.0 * neuron output (Exp. Input neuron output => 0.4 * 3.4 <= Connection weight)
 # * 4.  Calculate Internal and Action neuron's recieved values => tanh(sum(inputs)) => -1.0 to 1.0
 # ! Note:   Internal Neurons Default value => 0.0
@@ -53,25 +54,32 @@ class NeuralNetwork:
 
     def create_limited_connections(self):
         max_total_connections = 12  # Maximum possible connection count
-        total_connections = 0
+        total_connections = 1
         
         target_connection_count = random.randint(1, 12)
 
         # ! Default Connection: Atleast one connection with the target of a output neuron has to be connected
         default_connection_output_neuron = np.random.choice(self.output_neurons)
         default_connection_sender_neuron = np.random.choice(self.input_neurons + self.internal_neurons)
-        default_connection_sender_neuron.connect(default_connection_output_neuron, random.uniform(-4.0, 4.0))
+        weight = random.uniform(-4.0, 4.0)
+        default_connection_sender_neuron.connect(default_connection_output_neuron, weight)
+
+        default_connection_output_neuron.recievedConnections.append((default_connection_sender_neuron, weight))
+        default_connection_output_neuron.totalInputsSum += weight * default_connection_sender_neuron.value
 
         for i in range(target_connection_count - 1):
             source_neuron = np.random.choice(self.input_neurons + self.internal_neurons)
             if source_neuron.neuron_type == "input":
                 target_neuron = np.random.choice(self.output_neurons + self.internal_neurons)
             elif source_neuron.neuron_type == "internal":
-                target_neuron = np.random.choice(self.output_neurons + self.internal_neurons - [source_neuron])
+                combined_except_source = [x for x in (self.output_neurons + self.internal_neurons) if x != source_neuron]
+                target_neuron = np.random.choice(combined_except_source)
             weight = random.uniform(-4.0, 4.0)
+
             # connect the neurons : 
             source_neuron.connect(target_neuron, weight)
             target_neuron.recievedConnections.append((target_neuron, weight))
+
             # add the multiplied value to the source
             target_neuron.totalInputsSum += weight * target_neuron.value
             total_connections += 1
