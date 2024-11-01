@@ -11,7 +11,7 @@ import random
 # ! Note:   Internal Neurons Default value => 1.0
 
 # TODO  Collect similation data for input neurons and arrange them 0.0 to 1.0
-# * 1.  Make
+# * 1.  Make creatures move using action neurons' outputs
 
 # TODO  Make generation system and upgrade the simulation
 
@@ -205,24 +205,57 @@ class Agent:
         output_values = self.network.get_output_values()
         self.move(output_values)
 
-    def move(self, output_values):
-        if output_values['Mfd'] > 0.2:
-            self.Y = (self.Y + 1) % 64
-            self.last_move_y = 1
-        elif output_values['Mrv'] > 0.2:
-            self.Y = (self.Y - 1) % 64
-            self.last_move_y = -1
-        else:
-            self.last_move_y = 0
 
-        if output_values['MX'] > 0.2:
-            self.X = (self.X + 1) % 64
-            self.last_move_x = 1
-        elif output_values['MX'] < -0.2:
-            self.X = (self.X - 1) % 64
-            self.last_move_x = -1
-        else:
-            self.last_move_x = 0
+    # OUTPUT NEURONS : 
+    #   DONE  Mfd - move forward
+    #   DONE  Mrn - move random
+    #   DONE  Mrv - move reverse
+    #   DONE  MX - move east/west (+/-)
+    #   DONE  MY - move north/south (+/-)
+
+    def move(self, output_values):
+        if output_values['Mrn'] > 0:
+            directions = ['n', 'e', 's', 'w']
+            choice = np.random.choice(directions)
+            if choice == 'n':
+                self.Y += 1
+                self.last_move_y += 1
+            if choice == 'e':
+                self.X = self.X + 1
+                self.last_move_x += 1
+            if choice == 's':
+                self.Y += -1
+                self.last_move_y += -1
+            if choice == 'w':
+                self.X = self.X - 1
+                self.last_move_x += -1
+
+        if output_values['Mfd'] > 0:
+            self.X = self.X + 1
+            self.last_move_x += 1
+
+        if output_values['Mrv'] > 0:
+            self.X = self.X - 1
+            self.last_move_x += -1
+
+        if output_values['MX'] > 0.3:
+            self.X = self.X + 1
+            self.last_move_x += 1
+
+        if output_values['MX'] < -0.3:
+            self.X = self.X - 1
+            self.last_move_x += -1
+
+        if output_values['MY'] > 0.3:
+            self.Y += 1
+            self.last_move_y += 1
+
+        if output_values['MY'] < -0.3:
+            self.Y += -1
+            self.last_move_y += -1
+    def MovementPossible():
+        print("check if new cord in another agent or outsşde of the border")
+
 
 # Example Similation Data/Values
 simulation_data = {
