@@ -3,13 +3,17 @@ import random
 
 # TODO Remake the neuron connections and value assigning amk
 #   1.  DONE    Inputların ürettiği/sahip olduğu değerleri 0.0 ila 1.0 arasında olmasını sağla.
-# * 2.  Neural connectionları oluştur : En fazla 12 connection olabilir. 
-# ! 2.1 Pay attention to not to connect to neurons multiple times
+#   2.  DONE    Neural connectionları oluştur : En fazla 12 connection olabilir. 
+#   2.1 DONE    Pay attention to not to connect to neurons multiple times
+# * 2.2 Test neural connections.
 # * 3.  Calculate Connection values : Connection weight -4.0 to 4.0 * neuron output (Exp. Input neuron output => 0.4 * 3.4 <= Connection weight)
 # * 4.  Calculate Internal and Action neuron's recieved values => tanh(sum(inputs)) => -1.0 to 1.0
-# ! Note:   Internal Neurons Default value => 0.0
+# ! Note:   Internal Neurons Default value => 1.0
 
-# TODO Collect similation data for input neurons and arrange them 0.0 to 1.0
+# TODO  Collect similation data for input neurons and arrange them 0.0 to 1.0
+# * 1.  Make
+
+# TODO  Make generation system and upgrade the simulation
 
 # Nöron sınıfı
 class Neuron:
@@ -27,10 +31,14 @@ class Neuron:
 
     def activate(self):
         if self.neuron_type != 'input':  # Input nöronları aktive olmaz
-
-            total_input = sum(neuron.value * weight for neuron, weight in self.connections)
-
+            print("ACTIVATE : ", self.name)
+            print("RECIEVED : ", self.recievedConnections)
+            total_input = sum(neuron.value * weight for neuron, weight in self.recievedConnections)
+            
             self.value = np.tanh(total_input)  # -1.0 ile 1.0 arasında çıktı
+            print("VALUE : ", self.value)
+            if (self.neuron_type == 'internal') and (self.recievedConnections == []):
+                self.value = 1.0
 
     # Bağlantıları, ağırlıkları ve kendi değerini yazdırmak için bir fonksiyon
     #
@@ -125,7 +133,7 @@ class NeuralNetwork:
 
     def set_input_values(self, input_data):
         for neuron in self.input_neurons:
-            neuron.value = np.clip(input_data[neuron.name], -1.0, 1.0)  # -1.0 ile 1.0 arasında normalize et
+            neuron.value = input_data[neuron.name]  # -1.0 ile 1.0 arasında normalize et
 
     def feed_forward(self):
         for neuron in self.internal_neurons:
@@ -237,4 +245,5 @@ simulation_data = {
 
 # Agent'ı oluştur ve güncelle
 agent = Agent(10, 20)
+agent.update(simulation_data)
 agent.network.print_debug_info()
