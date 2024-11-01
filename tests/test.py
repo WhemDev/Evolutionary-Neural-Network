@@ -1,6 +1,11 @@
 import numpy as np
 
 # TODO Remake the neuron connections and value assigning amk
+# * 1.  Inputların ürettiği/sahip olduğu değerleri 0.0 ila 1.0 arasında olmasını sağla.
+# * 2.  Neural connectionları oluştur : En fazla 12 connection olabilir. 
+# * 3.  Calculate Connection values : Connection weight -4.0 to 4.0 * neuron output (Exp. Input neuron output => 0.4 * 3.4 <= Connection weight)
+# * 4.  Calculate Internal and Action neuron's recieved values => tanh(sum(inputs)) => -1.0 to 1.0
+# ! Note:   Internal Neurons Default value => 0.0
 
 # Nöron sınıfı
 class Neuron:
@@ -15,7 +20,9 @@ class Neuron:
 
     def activate(self):
         if self.neuron_type != 'input':  # Input nöronları aktive olmaz
+
             total_input = sum(neuron.value * weight for neuron, weight in self.connections)
+
             self.value = np.tanh(total_input)  # -1.0 ile 1.0 arasında çıktı
 
     # Bağlantıları, ağırlıkları ve kendi değerini yazdırmak için bir fonksiyon
