@@ -17,8 +17,9 @@ class Neuron:
         self.name = name
         self.value = 0.0
         self.connections = []
+        self.recievedConnections = []
         self.totalInputsSum = 0.0
-        self.totalInputsCount = len(self.connections)
+        self.totalInputsCount = len(self.recievedConnections)
 
     def connect(self, target_neuron, weight):
         self.connections.append((target_neuron, weight))
@@ -66,12 +67,13 @@ class NeuralNetwork:
             if source_neuron.neuron_type == "input":
                 target_neuron = np.random.choice(self.output_neurons + self.internal_neurons)
             elif source_neuron.neuron_type == "internal":
-                target_neuron = np.random.choice(self.output_neurons + self.internal_neurons - source_neuron)
+                target_neuron = np.random.choice(self.output_neurons + self.internal_neurons - [source_neuron])
             weight = random.uniform(-4.0, 4.0)
             # connect the neurons : 
             source_neuron.connect(target_neuron, weight)
+            target_neuron.recievedConnections.append((target_neuron, weight))
             # add the multiplied value to the source
-            source_neuron.totalInputsSum = weight * target_neuron.value
+            target_neuron.totalInputsSum += weight * target_neuron.value
             total_connections += 1
 
         self.total_connections = total_connections
