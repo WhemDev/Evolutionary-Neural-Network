@@ -7,6 +7,8 @@ import numpy as np
 # * 4.  Calculate Internal and Action neuron's recieved values => tanh(sum(inputs)) => -1.0 to 1.0
 # ! Note:   Internal Neurons Default value => 0.0
 
+# TODO Collect similation data for input neurons and arrange them 0.0 to 1.0
+
 # Nöron sınıfı
 class Neuron:
     def __init__(self, neuron_type, name):
@@ -148,7 +150,7 @@ class Agent:
         else:
             self.last_move_x = 0
 
-# Simülasyon verilerini oluştur (örnek veriler)
+# Example Similation Data/Values
 simulation_data = {
     'Lx': 0.5,
     'Ly': -0.5,
