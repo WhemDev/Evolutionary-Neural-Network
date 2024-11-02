@@ -1,19 +1,20 @@
 import numpy as np
 import random
 
-# TODO Remake the neuron connections and value assigning amk
+# TODO  DONE     Remake the neuron connections and value assigning amk
 #   1.  DONE    Inputların ürettiği/sahip olduğu değerleri 0.0 ila 1.0 arasında olmasını sağla.
 #   2.  DONE    Neural connectionları oluştur : En fazla 12 connection olabilir. 
 #   2.1 DONE    Pay attention to not to connect to neurons multiple times
-# * 2.2 Test neural connections.
-# * 3.  Calculate Connection values : Connection weight -4.0 to 4.0 * neuron output (Exp. Input neuron output => 0.4 * 3.4 <= Connection weight)
-# * 4.  Calculate Internal and Action neuron's recieved values => tanh(sum(inputs)) => -1.0 to 1.0
+#   2.2 DONE    Test neural connections.
+#   3.  DONE    Calculate Connection values : Connection weight -4.0 to 4.0 * neuron output (Exp. Input neuron output => 0.4 * 3.4 <= Connection weight)
+#   4.  DONE    Calculate Internal and Action neuron's recieved values => tanh(sum(inputs)) => -1.0 to 1.0
 # ! Note:   Internal Neurons Default value => 1.0
 
 # TODO  Collect similation data for input neurons and arrange them 0.0 to 1.0
 # * 1.  Make creatures move using action neurons' outputs
 
 # TODO  Make generation system and upgrade the simulation
+
 
 # Nöron sınıfı
 class Neuron:
