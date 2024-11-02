@@ -108,10 +108,6 @@ class NeuralNetwork:
                 targetCon.append(con[0])
 
             if (source_neuron not in targetCon) and (source_neuron != target_neuron):
-                # connect the neurons : 
-                print("source neuron name : ", source_neuron.name, source_neuron)
-                print("target neuron name : ", target_neuron.name, target_neuron)
-                print("target neuron cons : ", targetCon)
                 
                 source_neuron.connect(target_neuron, weight)
                 target_neuron.recievedConnections.append((source_neuron, weight))
@@ -120,7 +116,6 @@ class NeuralNetwork:
                 # ! check the totalInputsSum 
                 target_neuron.totalInputsSum += weight * source_neuron.value
                 total_connections += 1
-                print("\n\n\nCONNECTION  :  ", source_neuron.name, target_neuron.name, "\n\n", source_neuron.connections,"\n\n")
                 
             a += 1
             if a == 10: break

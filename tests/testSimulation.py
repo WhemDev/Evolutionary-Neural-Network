@@ -65,6 +65,7 @@ text.set_text(text_template.format(current_frame, num_agents, grid_size, grid_si
 # Simülasyonu durdurma fonksiyonu
 def on_key(event):
     if event.key == 'q':  # 'q' tuşuna basıldığında
+        print("SIMULATION CLOSED (key_event)")
         plt.close()  # Tüm plotları kapat ve programı sonlandır
 
 
@@ -72,7 +73,7 @@ def on_key(event):
 def update(frame):
     global agents, current_frame, in_rects_count
     current_frame = frame
-
+    time.sleep(0.07)
     # Her ajanın sinir ağını güncelle ve pozisyonunu değiştir
     for agent in agents:
         from testSimulation import grid
