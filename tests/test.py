@@ -31,12 +31,9 @@ class Neuron:
 
     def activate(self):
         if self.neuron_type != 'input':  # Input nöronları aktive olmaz
-            print("ACTIVATE : ", self.name)
-            print("RECIEVED : ", self.recievedConnections)
             total_input = sum(neuron.value * weight for neuron, weight in self.recievedConnections)
             
             self.value = np.tanh(total_input)  # -1.0 ile 1.0 arasında çıktı
-            print("VALUE : ", self.value)
             if (self.neuron_type == 'internal') and (self.recievedConnections == []):
                 self.value = 1.0
 
@@ -164,9 +161,10 @@ class NeuralNetwork:
 
 # Agent sınıfı
 class Agent:
-    def __init__(self, x, y):
+    def __init__(self, x, y, grid):
         self.X = x
         self.Y = y
+        self.grid = grid
         self.last_move_x = 0
         self.last_move_y = 0
 
@@ -195,6 +193,8 @@ class Agent:
         # ! Create Neural Network
         self.network = NeuralNetwork(input_neurons, internal_neurons, output_neurons)
 
+        self.grid[self.Y-1][self.X-1] = 1
+
     def update(self, simulation_data):
         self.network.set_input_values(simulation_data)
         self.network.feed_forward()
@@ -214,48 +214,70 @@ class Agent:
     #   DONE  MY - move north/south (+/-)
 
     def move(self, output_values):
+        new_x, new_y = self.X, self.Y
         if output_values['Mrn'] > 0:
             directions = ['n', 'e', 's', 'w']
             choice = np.random.choice(directions)
             if choice == 'n':
-                self.Y += 1
-                self.last_move_y += 1
+                new_y += 1
             if choice == 'e':
-                self.X = self.X + 1
-                self.last_move_x += 1
+                new_x= self.X + 1
             if choice == 's':
-                self.Y += -1
-                self.last_move_y += -1
+                new_y += -1
             if choice == 'w':
-                self.X = self.X - 1
-                self.last_move_x += -1
+                new_x = self.X - 1
 
         if output_values['Mfd'] > 0:
-            self.X = self.X + 1
-            self.last_move_x += 1
+            new_x = self.X + 1
 
         if output_values['Mrv'] > 0:
-            self.X = self.X - 1
-            self.last_move_x += -1
-
+            new_x = self.X - 1
+            
         if output_values['MX'] > 0.3:
-            self.X = self.X + 1
-            self.last_move_x += 1
-
+            new_x= self.X + 1
+            
         if output_values['MX'] < -0.3:
-            self.X = self.X - 1
-            self.last_move_x += -1
-
+            new_x = self.X - 1
+            
         if output_values['MY'] > 0.3:
-            self.Y += 1
-            self.last_move_y += 1
-
+            new_y += 1
+            
         if output_values['MY'] < -0.3:
-            self.Y += -1
-            self.last_move_y += -1
-    def MovementPossible():
-        print("check if new cord in another agent or outsşde of the border")
+            new_y += -1
+        
+        # Çakışmayı önlemek için pozisyon kontrolü
+        if (0 <= new_x <= 63) and (0 <= new_y <= 63):
+            if (self.grid[new_y][new_x] == 0):  # 64 ten yüksek mi kontrol
+                #calculate last move   30 -> 31 = +1  yeni - eski
+                self.last_move_x = new_x - self.X
+                self.last_move_y = new_y - self.Y
 
+                self.grid[self.Y][self.X] = 0  # Eski pozisyonu boşalt
+                self.X, self.Y = new_x, new_y  # Yeni pozisyona geç
+                self.grid[self.Y][self.X] = 1  # Yeni pozisyonu işaretle
+                return
+        self.last_move_x = 0
+        self.last_move_y = 0
+    
+
+# Age - age
+# Rnd - random input
+# Blr - blockage left right
+# Bfd - blockage forward
+# Pop - population density
+# Plr - population gradient left right
+# Pfd - population gradient forward
+# LPf - population long-range forward
+# LMy - last movement Y
+# LMx - last movement X
+# LBf - blockage longrange forward
+# BDy - north/south border distance
+# BDx - esat/west border distance
+# Gen - genetic similarity of forward neighbor
+# Lx - east/west world locaion
+# Ly - north/south world location
+# BDd - nearest border distance
+# BDd nearest border location
 
 # Example Similation Data/Values
 simulation_data = {
@@ -275,8 +297,7 @@ simulation_data = {
     'BDd': -0.2,
     'LPf': 0.4
 }
-
-# Agent'ı oluştur ve güncelle
-agent = Agent(10, 20)
-agent.update(simulation_data)
-agent.network.print_debug_info()
+#grid = [[0 for _ in range(64)] for _ in range(64)]
+## Agent'ı oluştur ve güncelle
+#agent = Agent(63, 63, grid)
+#agent.update(simulation_data)
