@@ -167,12 +167,12 @@ class Agent:
         # Input neurons
         input_neurons = [
             Neuron('input', 'Lx'), Neuron('input', 'Ly'), Neuron('input', 'Age'),
-            Neuron('input', 'Rnd'), Neuron('input', 'Blr'), Neuron('input', 'Bfd'),
+            Neuron('input', 'Rnd'), 
             Neuron('input', 'Plr'), Neuron('input', 'Pfd'), Neuron('input', 'LMy'),
             Neuron('input', 'LMx'), Neuron('input', 'BDy'), Neuron('input', 'BDx'),
-            Neuron('input', 'Gen'), Neuron('input', 'BDd'), Neuron('input', 'LPf')
+            Neuron('input', 'BDd'), Neuron('input', 'LPf')
         ]
-
+       
         # 3 internal neurons
         internal_neurons = [Neuron('internal', f'N{i}') for i in range(3)]
 

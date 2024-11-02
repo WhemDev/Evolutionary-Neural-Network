@@ -11,20 +11,26 @@ grid_size = 64
 num_agents = 240 # ! Normal = 240 
 in_rects_count = 0
 grid = [[0 for _ in range(64)] for _ in range(64)]
+generation = 0
 
 # Ajanları oluşturma
 agents = [Agent(random.randint(0, grid_size - 1), random.randint(0, grid_size - 1), grid=grid) for _ in range(num_agents)]
 all_positions = {(agent.X, agent.Y) for agent in agents}
 
+def reset_generation():
+    """Yeni bir jenerasyona geçiş için ajanları sıfırla."""
+    global agents, grid, generation
+    generation += 1
+    print(f"Yeni Jenerasyon: {generation}")
+    grid = [[0 for _ in range(grid_size)] for _ in range(grid_size)]
+    agents = [Agent(random.randint(0, grid_size - 1), random.randint(0, grid_size - 1), grid=grid) for _ in range(num_agents)]
+
 # Gerçek simülasyon verilerini hesaplayan yardımcı fonksiyonlar
 def calculate_blockage(agent, direction):
-    """Agent'ın çevresindeki engelleri kontrol eder."""
-    if direction == "left":
-        return -4 if agent.X == 0 else 4  # Sol sınırda mı?
-    elif direction == "right":
-        return -4 if agent.X == grid_size - 1 else 4  # Sağ sınırda mı?
-    elif direction == "forward":
-        return -4 if agent.Y == grid_size - 1 else 4  # İleri sınırda mı?
+    if direction == "forward":
+        if agent.X == 63: return 0
+        elif agent.grid[agent.Y][agent.X + 1] == 1: return 0 
+        else: return 1
 
 def calculate_population_gradient(agent):
     """Agent'ın çevresindeki diğer agent'ların yoğunluğunu hesaplar."""
@@ -52,8 +58,8 @@ ax_text.axis('off')
 text = ax_text.text(0.1, 0.7, '', transform=ax_text.transAxes, va='center', ha='left', fontsize=12)
 
 # Sağ tarafta yeşil dikdörtgen ekleme
-background_rect = Rectangle((57, 0), 7, grid_size, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
-background_rect1 = Rectangle((0, 0), 7, grid_size, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
+background_rect = Rectangle((60, -1), 4, grid_size+1, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
+background_rect1 = Rectangle((-1,-1), 4, grid_size+1, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
 ax.add_patch(background_rect)
 ax.add_patch(background_rect1)
 
@@ -73,7 +79,13 @@ def on_key(event):
 def update(frame):
     global agents, current_frame, in_rects_count
     current_frame = frame
-    time.sleep(0.07)
+    #time.sleep(0.07)
+
+    if frame >= 200: 
+        reset_generation() 
+        return
+
+
     # Her ajanın sinir ağını güncelle ve pozisyonunu değiştir
     for agent in agents:
         from testSimulation import grid
@@ -84,22 +96,20 @@ def update(frame):
         # Gerçek simülasyon verilerini hesapla
         plr, pfd = calculate_population_gradient(agent)
 
+
         simulation_data = {
             'Age': (frame - 100) / 100,  # -4.0 => frame 0; 4.0 => frame 200
-            'Blr': calculate_blockage(agent, "left"),
-            'Bfd': calculate_blockage(agent, "forward"),
             'Plr': plr,
             'Pfd': pfd,
             'LMy': agent.last_move_y,
             'LMx': agent.last_move_x,
-            'BDy': agent.Y - (grid_size // 2),  # Kuzey-güney sınır mesafesi
-            'BDx': agent.X - (grid_size // 2),  # Doğu-batı sınır mesafesi
-            'Gen': random.uniform(-1, 1),  # Genetik benzerlik (örnek veri)
+            'BDy': agent.Y / (grid_size - agent.Y),  # Kuzey-güney sınır mesafesi
+            'BDx': agent.X / (grid_size - agent.X),  # Doğu-batı sınır mesafesi
             'BDd': min(agent.Y, grid_size - agent.Y, agent.X, grid_size - agent.X),  # En yakın sınır mesafesi
             'LPf': calculate_blockage(agent, "forward"),
-            'Lx': 0.5,
-            'Ly': 0.5,
-            'Rnd': 0.5,
+            'Lx': (agent.X - (grid_size // 2) / 32),
+            'Ly': (agent.Y - (grid_size // 2) / 32),
+            'Rnd': random.uniform(-1, 1),
         }
         agent.update(simulation_data) 
         grid = agent.grid # Neural network aktivasyonu ve pozisyon güncellemesi
@@ -108,8 +118,8 @@ def update(frame):
     scat.set_offsets([(agent.X, agent.Y) for agent in agents])
 
     # Dikdörtgen içindeki ajanları say
-    in_left_rect = sum(0 <= agent.X <= 7 for agent in agents)
-    in_right_rect = sum(57 <= agent.X < 64 for agent in agents)
+    in_left_rect = sum(0 <= agent.X <= 4 for agent in agents)
+    in_right_rect = sum(60 <= agent.X < 64 for agent in agents)
     in_rects_count = in_left_rect + in_right_rect
 
     # Yazı alanındaki statları güncelle
