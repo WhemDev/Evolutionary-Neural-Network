@@ -11,10 +11,10 @@ import random
 # ! Note:   Internal Neurons Default value => 1.0
 
 # TODO  Collect similation data for input neurons and arrange them 0.0 to 1.0
-# * 1.  Make creatures move using action neurons' outputs
+#   1.  DONE    Make creatures move using action neurons' outputs
 
 # TODO  Make generation system and upgrade the simulation
-
+# !  1.     MAKE GENERATION AND MUTATION, BE ABLE TO PAUSE AND CONTINUE TO SIMULATION VE AGENTLARIN NÖRONLARINI GÖREBİL
 
 # Nöron sınıfı
 class Neuron:
