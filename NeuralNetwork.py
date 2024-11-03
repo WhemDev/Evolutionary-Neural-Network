@@ -10,7 +10,7 @@ class NeuralNetwork:
         self.output_neurons = output_neurons
         self.all_neurons = input_neurons + internal_neurons + output_neurons
         self.create_limited_connections()
-
+    
     def create_limited_connections(self):
         max_total_connections = 12  # Maximum possible connection count
         total_connections = 1

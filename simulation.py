@@ -5,6 +5,8 @@ from matplotlib.patches import Rectangle
 from Agent import Agent
 import random
 import time
+import Generation
+
 
 # Simülasyon Parametreleri 64^2 = 4096
 grid_size = 64
@@ -16,14 +18,6 @@ generation = 0
 # Ajanları oluşturma
 agents = [Agent(random.randint(0, grid_size - 1), random.randint(0, grid_size - 1), grid=grid) for _ in range(num_agents)]
 all_positions = {(agent.X, agent.Y) for agent in agents}
-
-def reset_generation():
-    """Yeni bir jenerasyona geçiş için ajanları sıfırla."""
-    global agents, grid, generation
-    generation += 1
-    print(f"Yeni Jenerasyon: {generation}")
-    grid = [[0 for _ in range(grid_size)] for _ in range(grid_size)]
-    agents = [Agent(random.randint(0, grid_size - 1), random.randint(0, grid_size - 1), grid=grid) for _ in range(num_agents)]
 
 # Gerçek simülasyon verilerini hesaplayan yardımcı fonksiyonlar
 def calculate_blockage(agent, direction):
@@ -67,8 +61,8 @@ ax.add_patch(background_rect1)
 
 # Başlangıç statlarını ayarlama
 current_frame = 0
-text_template = "Frame: {}\nTotal Agents: {}\nGrid Size: {}x{}\nSurvived: {}"
-text.set_text(text_template.format(current_frame, num_agents, grid_size, grid_size, in_rects_count))
+text_template = "GENERATION: {}\n\nFrame: {}\nTotal Agents: {}\nGrid Size: {}x{}\nSurvived: {}"
+text.set_text(text_template.format(generation, current_frame, num_agents, grid_size, grid_size, in_rects_count))
 
 # endregion
 
@@ -81,13 +75,13 @@ def on_key(event):
 
 # Güncelleme fonksiyonu
 def update(frame):
-    global agents, current_frame, in_rects_count
+    global agents, current_frame, in_rects_count, generation
     current_frame = frame
     #time.sleep(0.07)
 
-    if frame >= 200: 
-        reset_generation() 
-        return
+    if frame >= 100: 
+        print("STARTED NEW GENERATION")
+        frame=0
 
 
     # Her ajanın sinir ağını güncelle ve pozisyonunu değiştir
@@ -102,7 +96,7 @@ def update(frame):
 
 
         simulation_data = {
-            'Age': (frame - 100) / 100,  # -4.0 => frame 0; 4.0 => frame 200
+            'Age': (frame - 50) / 50,  # -4.0 => frame 0; 4.0 => frame 200
             'Plr': plr,
             'Pfd': pfd,
             'LMy': agent.last_move_y,
@@ -126,14 +120,14 @@ def update(frame):
     in_rects_count = sum(agent.survived == True for agent in agents)
 
     # Yazı alanındaki statları güncelle
-    text.set_text(text_template.format(current_frame, num_agents, grid_size, grid_size, in_rects_count))
+    text.set_text(text_template.format(generation, current_frame, num_agents, grid_size, grid_size, in_rects_count))
 
 
 fig.canvas.mpl_connect('key_press_event', on_key)
 
 
 # Animasyonu oluştur
-ani = FuncAnimation(fig, update, frames=200, interval=100)
+ani = FuncAnimation(fig, update, frames=2000, interval=100)
 
 # Grafiği göster
 plt.show()
