@@ -160,6 +160,10 @@ class Agent:
     def __init__(self, x, y, grid):
         self.X = x
         self.Y = y
+
+        self.survived = False
+        self.genome = ""
+
         self.grid = grid
         self.last_move_x = 0
         self.last_move_y = 0
@@ -254,7 +258,7 @@ class Agent:
                 return
         self.last_move_x = 0
         self.last_move_y = 0
-    
+
 
 # Age - age
 # Rnd - random input

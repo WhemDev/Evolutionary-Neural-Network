@@ -1,126 +1,107 @@
+import numpy as np
 import random
-
-from input_neurons import *
-from output_neurons import *
-
-
-# ! DONT USE 
-# ! EDIT /TEST FOLDER
-
+from NeuralNetwork import NeuralNetwork
+from Neuron import Neuron
 
 class Agent:
-    def __init__(self, input_names, output_names, internal_count=1):
-        self.spawnX = random.randint(0, 128)
-        self.spawnY = random.randint(0, 128)
-        self.X = self.spawnX
-        self.Y = self.spawnY
-        self.age = 0
+    def __init__(self, x, y, grid):
+        self.X = x
+        self.Y = y
 
-        # Create neurons
-        self.input_neurons = {name: Neuron("input", name) for name in input_names}
+        self.survived = False
+        self.genome = ""
 
-        # Create internal neurons
-        self.internal_neurons = [Neuron("internal", f"N{i}") for i in range(internal_count)]
+        self.grid = grid
+        self.last_move_x = 0
+        self.last_move_y = 0
+
+        # Input neurons
+        input_neurons = [
+            Neuron('input', 'Lx'), Neuron('input', 'Ly'), Neuron('input', 'Age'),
+            Neuron('input', 'Rnd'), 
+            Neuron('input', 'Plr'), Neuron('input', 'Pfd'), Neuron('input', 'LMy'),
+            Neuron('input', 'LMx'), Neuron('input', 'BDy'), Neuron('input', 'BDx'),
+            Neuron('input', 'BDd'), Neuron('input', 'LPf')
+        ]
+       
+        # 3 internal neurons
+        internal_neurons = [Neuron('internal', f'N{i}') for i in range(3)]
+
+        # assing the default internal neuron value (1.0)
+        for internal in internal_neurons:
+            internal.value = 1.0
+
+        # Output/Action neurons
+        output_neurons = [
+            Neuron('output', 'Mfd'), Neuron('output', 'Mrn'), Neuron('output', 'Mrv'),
+            Neuron('output', 'MX'), Neuron('output', 'MY')
+        ]
+
+        # ! Create Neural Network
+        self.network = NeuralNetwork(input_neurons, internal_neurons, output_neurons)
+
+        self.grid[self.Y-1][self.X-1] = 1
+
+    def update(self, simulation_data):
+        self.network.set_input_values(simulation_data)
+        self.network.feed_forward()
+
+        # Debugging: Toplam bağlantı sayısını ve output nöronlarına bağlantıları yazdır
+        # self.network.print_debug_info()
+
+        output_values = self.network.get_output_values()
+        self.move(output_values)
 
 
-        # Create output neurons with their specific classes
-        self.output_neurons = {
-            'Mrn': Mrn('Mrn'),  # Mrn class from output_neurons
-            'Mrv': Mrv('Mrv'),
-            'Mfd': Mfd('Mfd'),
-            'MX': MX('MX'),
-            'MY': MY('MY')
-        }
+    # OUTPUT NEURONS : 
+    #   DONE  Mfd - move forward
+    #   DONE  Mrn - move random
+    #   DONE  Mrv - move reverse
+    #   DONE  MX - move east/west (+/-)
+    #   DONE  MY - move north/south (+/-)
 
-        # Combine all neurons
-        self.all_neurons = (
-            list(self.input_neurons.values())
-            + self.internal_neurons
-            + list(self.output_neurons.values())
-        )
+    def move(self, output_values):
+        new_x, new_y = self.X, self.Y
+        if output_values['Mrn'] > 0:
+            directions = ['n', 'e', 's', 'w']
+            choice = np.random.choice(directions)
+            if choice == 'n':
+                new_y += 1
+            if choice == 'e':
+                new_x= self.X + 1
+            if choice == 's':
+                new_y += -1
+            if choice == 'w':
+                new_x = self.X - 1
 
-        # Create random connections
-        self.create_random_connections()
+        if output_values['Mfd'] > 0:
+            new_x = self.X + 1
 
-    def create_random_connections(self):
-        # Connect input neurons to output neurons as per the given rule
-        input_neurons = list(self.input_neurons.values())
-        output_neurons = list(self.output_neurons.values())
-        for neuron in input_neurons:
-            targets = random.sample(output_neurons, k=random.randint(1, len(output_neurons)))
-
-            for target in targets:
-                weight = random.uniform(-1, 1)
-                neuron.connect(target, weight)
-                print("connection: ")
-                print(target, weight)
-            print("neuron connections ")
-            print(neuron.connections)
-
-    def activate_network(self):
-        # Set input neuron values from the agent's data
-        self.input_neurons['Lx'].value = self.X  # Normalizing X coordinate
-        self.input_neurons['Ly'].value = self.Y  # Normalizing Y coordinate
+        if output_values['Mrv'] > 0:
+            new_x = self.X - 1
+            
+        if output_values['MX'] > 0.3:
+            new_x= self.X + 1
+            
+        if output_values['MX'] < -0.3:
+            new_x = self.X - 1
+            
+        if output_values['MY'] > 0.3:
+            new_y += 1
+            
+        if output_values['MY'] < -0.3:
+            new_y += -1
         
-        # Activate internal and output neurons
-        for neuron in self.internal_neurons + list(self.output_neurons.values()):
-            neuron.activate()
+        # Çakışmayı önlemek için pozisyon kontrolü
+        if (0 <= new_x <= 63) and (0 <= new_y <= 63):
+            if (self.grid[new_y][new_x] == 0):  # 64 ten yüksek mi kontrol
+                #calculate last move   30 -> 31 = +1  yeni - eski
+                self.last_move_x = new_x - self.X
+                self.last_move_y = new_y - self.Y
 
-    def move(self, all_positions):
-        move_x = 0
-        move_y = 0
-
-        # Mrn
-        if self.output_neurons['Mrn'].value:
-            if self.output_neurons['Mrn'].direction == 'north': move_y = 1
-            elif self.output_neurons['Mrn'].direction == 'south': move_y = -1
-            elif self.output_neurons['Mrn'].direction == 'east': move_x = 1
-            elif self.output_neurons['Mrn'].direction == 'west': move_x = -1
-
-        # Mrv
-        if self.output_neurons['Mrv'].value: move_x = -1
-
-        # MX
-        if self.output_neurons['MX'].value:
-            if self.output_neurons['MX'].direction == 'east': move_x = 1
-            elif self.output_neurons['MX'].direction == 'west': move_x = -1
-        # MY
-        if self.output_neurons['MY'].value:
-            if self.output_neurons['MY'].direction == 'north': move_y = 1
-            elif self.output_neurons['MY'].direction == 'south': move_y = -1
-
-        # Mfd
-        if self.output_neurons['Mfd'].value: move_x = 1
-
-
-        print(self.X, self.Y)
-        # Update agent's position
-        new_x = (self.X + move_x) 
-        new_y = (self.Y + move_y)
-
-        if 0 <= new_x < 128 and 0 <= new_y < 128:
-        # Yeni pozisyon başka bir agent ile çakışıyor mu kontrol et
-            if (new_x, new_y) not in all_positions:
-                # Eski pozisyonu setten kaldırmadan önce kontrol et
-                if (self.X, self.Y) in all_positions:
-                    all_positions.remove((self.X, self.Y))  # Eski pozisyonu kaldır
-                # Yeni pozisyonu ekle
-                self.X = new_x
-                self.Y = new_y
-                all_positions.append((self.X, self.Y))
-
-        print("moved")
-        print(self.X, self.Y)
-
-    def update(self, all_positions):
-        # Activate the network and then move
-        self.activate_network()
-        self.move(all_positions)
-
-
-agent = Agent(['Lx', 'Ly'], ["Mfd", "Mrn", "Mrv", "MX", "MY"])
-agent.update([])
-agent.update([])
-
-# Case 1: 
-# MRN - MX - MY +1 +1 x2
+                self.grid[self.Y][self.X] = 0  # Eski pozisyonu boşalt
+                self.X, self.Y = new_x, new_y  # Yeni pozisyona geç
+                self.grid[self.Y][self.X] = 1  # Yeni pozisyonu işaretle
+                return
+        self.last_move_x = 0
+        self.last_move_y = 0
