@@ -40,7 +40,15 @@ class Agent:
         # ! Create Neural Network
         self.network = NeuralNetwork(input_neurons, internal_neurons, output_neurons)
 
+        # connections to genome
+        self.Con2Gen(self.network.connections)
+
         self.grid[self.Y-1][self.X-1] = 1
+
+    def Con2Gen(self, connections):
+        for connection in connections:
+            # inputname-weight-outputname\n
+            self.genome += f'{connection[0].name} ' + f'{connection[2]} ' + f'{connection[1].name}' + '\n'
 
     def update(self, simulation_data):
         self.network.set_input_values(simulation_data)
@@ -105,3 +113,26 @@ class Agent:
                 return
         self.last_move_x = 0
         self.last_move_y = 0
+
+simulation_data = {
+    'Lx': 0.5,
+    'Ly': -0.5,
+    'Age': 0.3,
+    'Rnd': -0.7,
+    'Blr': 0.2,
+    'Bfd': -0.3,
+    'Plr': 0.1,
+    'Pfd': -0.4,
+    'LMy': 0.0,
+    'LMx': 0.0,
+    'BDy': 0.6,
+    'BDx': -0.6,
+    'Gen': 0.8,
+    'BDd': -0.2,
+    'LPf': 0.4
+}
+grid = [[0 for _ in range(64)] for _ in range(64)]
+## Agent'ı oluştur ve güncelle
+agent = Agent(33, 30, grid)
+print(agent.genome)
+agent.update(simulation_data)

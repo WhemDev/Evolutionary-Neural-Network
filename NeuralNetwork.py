@@ -6,6 +6,7 @@ class NeuralNetwork:
     def __init__(self, input_neurons, internal_neurons, output_neurons):
         # Define Neurons
         self.input_neurons = input_neurons
+        self.connections = []
         self.internal_neurons = internal_neurons
         self.output_neurons = output_neurons
         self.all_neurons = input_neurons + internal_neurons + output_neurons
@@ -20,32 +21,13 @@ class NeuralNetwork:
         # ! Default Connection: Atleast one connection with the target of a output neuron has to be connected
         default_connection_output_neuron = np.random.choice(self.output_neurons)
         default_connection_sender_neuron = np.random.choice(self.input_neurons + self.internal_neurons)
-        weight = random.uniform(-4.0, 4.0)
+        weight = round(random.uniform(-4.0, 4.0), 4)
         default_connection_sender_neuron.connect(default_connection_output_neuron, weight)
 
         default_connection_output_neuron.recievedConnections.append((default_connection_sender_neuron, weight))
         default_connection_output_neuron.totalInputsSum += weight * default_connection_sender_neuron.value
+        self.connections.append([default_connection_sender_neuron, default_connection_output_neuron, weight])
 
-        #for i in range(target_connection_count - 1):
-            
-            #source_neuron = np.random.choice(self.input_neurons + self.internal_neurons)
-
-            #possible_neurons = []
-
-            #if source_neuron.neuron_type == "input":
-            #    target_neuron = np.random.choice(self.output_neurons + self.internal_neurons)
-            #elif source_neuron.neuron_type == "internal":
-            #    combined_except_source = [x for x in (self.output_neurons + self.internal_neurons) if x != source_neuron]
-            #    target_neuron = np.random.choice(combined_except_source)
-            #weight = random.uniform(-4.0, 4.0)
-
-            ## connect the neurons : 
-            #source_neuron.connect(target_neuron, weight)
-            #target_neuron.recievedConnections.append((target_neuron, weight))
-            #
-            ## add the multiplied value to the source
-            #target_neuron.totalInputsSum += weight * target_neuron.value
-            #total_connections += 1
         a = 0
         while True:
             source_neuron = np.random.choice(self.input_neurons + self.internal_neurons)
@@ -55,7 +37,7 @@ class NeuralNetwork:
             elif source_neuron.neuron_type == "internal":
                 combined_except_source = [x for x in (self.output_neurons + self.internal_neurons) if x != source_neuron]
                 target_neuron = np.random.choice(combined_except_source)
-            weight = random.uniform(-4.0, 4.0)
+            weight = round(random.uniform(-4.0, 4.0), 4)
 
             targetCon = []
             for con in target_neuron.connections:
@@ -70,6 +52,7 @@ class NeuralNetwork:
                 # ! check the totalInputsSum 
                 target_neuron.totalInputsSum += weight * source_neuron.value
                 total_connections += 1
+                self.connections.append([source_neuron, target_neuron, weight])
                 
             a += 1
             if a == 10: break
