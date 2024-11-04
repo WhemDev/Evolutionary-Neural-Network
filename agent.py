@@ -48,7 +48,7 @@ class Agent:
     def Con2Gen(self, connections):
         for connection in connections:
             # inputname-weight-outputname\n
-            self.genome += f'{connection[0].name} ' + f'{connection[2]} ' + f'{connection[1].name}' + '\n'
+            self.genome += f'{connection[0].name} ' + f'{connection[2]} ' + f'{connection[1].name}' + '-'+f'{connection[0].value}' +' '+ f'{connection[1].value}'+'\n'
 
     def update(self, simulation_data):
         self.network.set_input_values(simulation_data)
@@ -82,34 +82,34 @@ class Agent:
             if choice == 'w':
                 new_x = self.X - 1
 
-        if output_values['Mfd'] > 0:
+        if output_values['Mfd'] >= 0:
             new_x = self.X + 1
 
-        if output_values['Mrv'] > 0:
+        if output_values['Mrv'] >= 0:
             new_x = self.X - 1
             
-        if output_values['MX'] > 0.3:
+        if output_values['MX'] >= 0:
             new_x= self.X + 1
             
-        if output_values['MX'] < -0.3:
+        if output_values['MX'] < -0:
             new_x = self.X - 1
             
-        if output_values['MY'] > 0.3:
+        if output_values['MY'] >= 0:
             new_y += 1
             
-        if output_values['MY'] < -0.3:
+        if output_values['MY'] < -0:
             new_y += -1
         
         # Çakışmayı önlemek için pozisyon kontrolü
-        if (0 <= new_x <= 63) and (0 <= new_y <= 63):
-            if (self.grid[new_y][new_x] == 0):  # 64 ten yüksek mi kontrol
+        if (0 <= new_x <= 64) and (0 <= new_y <= 64):
+            if (self.grid[new_y-1][new_x-1] == 0):  # 64 ten yüksek mi kontrol
                 #calculate last move   30 -> 31 = +1  yeni - eski
                 self.last_move_x = new_x - self.X
                 self.last_move_y = new_y - self.Y
 
-                self.grid[self.Y][self.X] = 0  # Eski pozisyonu boşalt
+                self.grid[self.Y-1][self.X-1] = 0  # Eski pozisyonu boşalt
                 self.X, self.Y = new_x, new_y  # Yeni pozisyona geç
-                self.grid[self.Y][self.X] = 1  # Yeni pozisyonu işaretle
+                self.grid[self.Y-1][self.X-1] = 1  # Yeni pozisyonu işaretle
                 return
         self.last_move_x = 0
         self.last_move_y = 0

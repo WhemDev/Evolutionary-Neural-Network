@@ -11,23 +11,24 @@ import Generation
 
 # Simülasyon Parametreleri 64^2 = 4096
 grid_size = 64
-num_agents = 240 # ! Normal = 240 
+num_agents = 120 # ! Normal = 240 
 in_rects_count = 0
 grid = [[0 for _ in range(64)] for _ in range(64)]
 generation = 0
 
 # Ajanları oluşturma
-agents = [Agent(random.randint(3, 61), random.randint(0, grid_size - 1), grid=grid) for _ in range(num_agents)]
+agents = [Agent(random.randint(5, 59), random.randint(0, grid_size - 1), grid=grid) for _ in range(num_agents)]
 all_positions = {(agent.X, agent.Y) for agent in agents}
 
 # Gerçek simülasyon verilerini hesaplayan yardımcı fonksiyonlar
 def calculate_blockage(agent, direction):
     if direction == "forward":
-        if agent.X == 63: return 0
+        if agent.X >= 63: return 0
+        if agent.Y >= 63: return 0
         elif agent.grid[agent.Y][agent.X + 1] == 1: return 0 
         else: return 1
 
-def calculate_population_gradient(agent):
+def calculate_population_gradient(agent, agents):
     """Agent'ın çevresindeki diğer agent'ların yoğunluğunu hesaplar."""
     left_count = sum(1 for a in agents if a.X < agent.X)
     right_count = sum(1 for a in agents if a.X > agent.X)
@@ -57,8 +58,8 @@ plt.subplots_adjust(left=0.05, right=0.85, top=0.95, bottom=0.05, wspace=0.1)
 
 
 # Sağ tarafta yeşil dikdörtgen ekleme
-background_rect = Rectangle((60, -1), 4, grid_size+1, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
-background_rect1 = Rectangle((-1,-1), 4, grid_size+1, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
+background_rect = Rectangle((59.5, -1), 4.5, grid_size+1, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
+background_rect1 = Rectangle((-1,-1), 4.5, grid_size+1, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
 ax.add_patch(background_rect)
 ax.add_patch(background_rect1)
 
@@ -76,8 +77,6 @@ def on_key(event):
         print("SIMULATION CLOSED (key_event)")
         plt.close()  # Tüm plotları kapat ve programı sonlandır
 
-
-
 def on_Fig_click(event):
     global targetAgent
     # event.xdata ve event.ydata tıklanan yerin koordinatlarını verir
@@ -89,8 +88,6 @@ def on_Fig_click(event):
             if (agent.X == x) and (agent.Y == y):
                 targetAgent = agent 
                 
-
-
 pause = False
 def onClick(event):
     global pause
@@ -122,15 +119,13 @@ def log(generation, agents, count):
         file.write(f"{count}\n")
     
 
-
-
 # Güncelleme fonksiyonu
 def update(frame):
     global agents, current_frame, in_rects_count, generation, targetAgent
     current_frame = frame
     #time.sleep(0.07)
 
-    if (frame % 100 == 0) and (frame > 50): 
+    if (frame % 50 == 0) and (frame > 10): 
         print("STARTED NEW GENERATION")
         print(generation)
         log(generation, agents, in_rects_count)
@@ -154,23 +149,23 @@ def update(frame):
         agent.grid = grid
 
         # Gerçek simülasyon verilerini hesapla
-        plr, pfd = calculate_population_gradient(agent)
+        plr, pfd = calculate_population_gradient(agent, agents)
 
 
         simulation_data = {
-            'Age': (frame - 50) / 50,  # -4.0 => frame 0; 4.0 => frame 200
-            'Plr': plr,
-            'Pfd': pfd,
-            'LMy': agent.last_move_y,
-            'LMx': agent.last_move_x,
-            'BDy': agent.Y / (grid_size - agent.Y),  # Kuzey-güney sınır mesafesi
-            'BDx': agent.X / (grid_size - agent.X),  # Doğu-batı sınır mesafesi
-            'BDd': min(agent.Y, grid_size - agent.Y, agent.X, grid_size - agent.X),  # En yakın sınır mesafesi
-            'LPf': calculate_blockage(agent, "forward"),
-            'Lx': (agent.X - (grid_size // 2) / 32),
-            'Ly': (agent.Y - (grid_size // 2) / 32),
-            'Rnd': random.uniform(-1, 1),
-        }
+    'Age': (frame - 50) / 150 + 0.5,  # -4.0 => frame 0; 4.0 => frame 200, 0-1 aralığına normalize et
+    'Plr': (plr + num_agents * 8) / (2 * num_agents * 8),  # Normalize et, -num_agents*8 ila num_agents*8 arasında
+    'Pfd': (pfd + num_agents * 8) / (2 * num_agents * 8),  # Aynı şekilde normalize et
+    'LMy': (agent.last_move_y + 1) / 2,  # -1 ve 1 aralığını 0-1 aralığına dönüştür
+    'LMx': (agent.last_move_x + 1) / 2,  # -1 ve 1 aralığını 0-1 aralığına dönüştür
+    'BDy': agent.Y / (grid_size),  # Y eksenindeki mesafeyi 0-1 aralığına dönüştür
+    'BDx': agent.X / (grid_size),  # X eksenindeki mesafeyi 0-1 aralığına dönüştür
+    'BDd': min(agent.Y, grid_size - agent.Y, agent.X, grid_size - agent.X) / (grid_size // 2),  # En yakın mesafe
+    'LPf': calculate_blockage(agent, "forward"),  # Bu zaten 0 veya 1
+    'Lx': (agent.X - (grid_size // 2)) / (grid_size // 2) * 0.5 + 0.5,  # Normalize et
+    'Ly': (agent.Y - (grid_size // 2)) / (grid_size // 2) * 0.5 + 0.5,  # Normalize et
+    'Rnd': (random.uniform(-1, 1) + 1) / 2,  # -1 ve 1 aralığını 0-1 aralığına dönüştür
+}
         agent.update(simulation_data)
         grid = agent.grid # Neural network aktivasyonu ve pozisyon güncellemesi
 

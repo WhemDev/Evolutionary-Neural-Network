@@ -1,0 +1,18 @@
+GENERATION : 12
+Survived Count : 1
+
+
+1-
+LMy -3.5228 Mfd-0.0 0.0
+Rnd 0.0698 Mrv-0.0 0.0
+Ly -2.7137 Mfd-0.0 0.0
+Plr -1.6832 Mfd-0.0 0.0
+N2 2.6569 Mrn-1.0 0.0
+BDx -0.156 Mrn-0.0 0.0
+Pfd -0.5948 Mrn-0.0 0.0
+Plr -1.026 Mrn-0.0 0.0
+N1 -1.0732 Mrv-1.0 0.0
+N1 -2.0982 Mrn-1.0 0.0
+LMy 0.9295 Mrv-0.0 0.0
+
+
