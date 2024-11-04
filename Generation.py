@@ -11,7 +11,7 @@ def mutate_network(agent):
     network = agent.network
     global mut
     # %1 ihtimalle mutasyon işlemi gerçekleştirin
-    if random.random() < 0.007:
+    if random.random() < 0.01:
 
         # Rastgele bir değişiklik türü seçin
         mutation_type = random.choice(["add_connection", "remove_connection", "change_weight", "change_target"])
@@ -37,7 +37,6 @@ def mutate_network(agent):
             # Birkaç bağlantının ağırlığını değiştir
             for connection in random.sample(network.connections, k=min(3, len(network.connections))):
                 weight = connection[2]
-                mutation_amount = random.uniform(-0.5, 0.5)  # Küçük değişiklik
                 new_weight = random.uniform(-4, 4)
                 connection[2] = new_weight
 
@@ -59,14 +58,19 @@ def create_new_generation(agents, grid):
     if survivors:
 
         new_agents = []
-        for _ in range(len(agents)):
+        for _ in range(len(survivors)):
+            parent = random.choice(survivors)
+            new_agent = Agent(random.randint(5, 59), random.randint(0, grid_size - 1), grid=grid)
+            new_agent.network = copy.deepcopy(parent.network)
+
+            new_agents.append(new_agent)
+        for _ in range(len(agents) - len(survivors)):
             parent = random.choice(survivors)
             new_agent = Agent(random.randint(5, 59), random.randint(0, grid_size - 1), grid=grid)
             new_agent.network = copy.deepcopy(parent.network)
 
             mutate_network(new_agent)  # Yeni ajanı mutasyona uğrat
             new_agents.append(new_agent)
-
         file_path = f'log/mutationCount.txt'
         with open(file_path, 'a') as file:
             file.write(f"{mut}\n")

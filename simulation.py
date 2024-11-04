@@ -8,14 +8,13 @@ import os
 import generation
 
 
-
 # Simülasyon Parametreleri 64^2 = 4096
 grid_size = 64
 num_agents = 256 # ! Normal = 240 
 in_rects_count = 0
 grid = [[0 for _ in range(64)] for _ in range(64)]
 generationCount = 0
-generationDuration = 60
+generationDuration = 70
 
 # Ajanları oluşturma
 agents = [Agent(random.randint(5, 59), random.randint(0, grid_size - 1), grid=grid) for _ in range(num_agents)]
@@ -59,7 +58,7 @@ plt.subplots_adjust(left=0.05, right=0.85, top=0.95, bottom=0.05, wspace=0.1)
 
 
 # Sağ tarafta yeşil dikdörtgen ekleme
-background_rect = Rectangle((59.5, -1), 5.5, grid_size+2, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
+background_rect = Rectangle((60.5, -1), 5.5, grid_size+2, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
 #border = Rectangle((31.5, 23.5), 2, 16, facecolor=[88/255, 207/255, 57/255], alpha=1, fill=True, zorder=2)
 ax.add_patch(background_rect)
 #ax.add_patch(border)
@@ -166,7 +165,7 @@ def update(frame):
         agent.update(simulation_data)
         grid = agent.grid # Neural network aktivasyonu ve pozisyon güncellemesi
 
-        agent.survived = agent.X >= 60
+        agent.survived = agent.X >= 61
 
     # Yeni pozisyonları scatter grafiğine ayarla
     scat.set_offsets([(agent.X, agent.Y) for agent in agents])
