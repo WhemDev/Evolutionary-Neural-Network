@@ -43,8 +43,8 @@ def calculate_population_gradient(agent, agents):
 
 # Grafik ve yazı alanı için iki eksen oluşturma
 fig, (ax, ax_text) = plt.subplots(1, 2, figsize=(12, 5), gridspec_kw={'width_ratios': [1.5, 1.5]})
-ax.set_xlim(-1, grid_size)
-ax.set_ylim(-1, grid_size)
+ax.set_xlim(-1, grid_size+1)
+ax.set_ylim(-1, grid_size+1)
 scat = ax.scatter([agent.X for agent in agents], [agent.Y for agent in agents], s=2, color='blue')
 
 # X ve Y eksenlerindeki numaraları gizle
@@ -58,8 +58,8 @@ plt.subplots_adjust(left=0.05, right=0.85, top=0.95, bottom=0.05, wspace=0.1)
 
 
 # Sağ tarafta yeşil dikdörtgen ekleme
-background_rect = Rectangle((59.5, -1), 4.5, grid_size+1, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
-background_rect1 = Rectangle((-1,-1), 4.5, grid_size+1, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
+background_rect = Rectangle((59.5, -1), 5.5, grid_size+2, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
+background_rect1 = Rectangle((-1,-1), 5.5, grid_size+2, facecolor=[88/255, 207/255, 57/255], alpha=0.5, fill=True, zorder=0)
 ax.add_patch(background_rect)
 ax.add_patch(background_rect1)
 
