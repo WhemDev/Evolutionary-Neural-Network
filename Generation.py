@@ -1,6 +1,7 @@
 from neuralNetwork import NeuralNetwork
 from neuron import Neuron
 from agent import Agent
+import numpy as np
 import random
 import copy
 grid_size = 64
@@ -15,12 +16,16 @@ def mutate_network(agent):
         # Rastgele bir değişiklik türü seçin
         mutation_type = random.choice(["add_connection", "remove_connection", "change_weight", "change_target"])
         mut += 1
-        if mutation_type == "add_connection" and len(network.connections) < 24:
+        if mutation_type == "add_connection" and len(network.connections) < 12:
             # Yeni bir bağlantı oluştur
-            source_neuron = random.choice(network.all_neurons)
-            target_neuron = random.choice(network.all_neurons)
-            weight = random.uniform(-4.0, 4.0)
-            source_neuron.connect(target_neuron, weight)
+            default_connection_output_neuron = np.random.choice(network.output_neurons)
+            default_connection_sender_neuron = np.random.choice(network.input_neurons + network.internal_neurons)
+            weight = round(random.uniform(-4.0, 4.0), 4)
+            default_connection_sender_neuron.connect(default_connection_output_neuron, weight)
+
+            default_connection_output_neuron.recievedConnections.append((default_connection_sender_neuron, weight))
+            default_connection_output_neuron.totalInputsSum += weight * default_connection_sender_neuron.value
+            network.connections.append([default_connection_sender_neuron, default_connection_output_neuron, weight])
 
         elif mutation_type == "remove_connection" and len(network.connections) > 1:
             # Mevcut bir bağlantıyı kaldır
