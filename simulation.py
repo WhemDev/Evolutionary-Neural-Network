@@ -15,6 +15,7 @@ num_agents = 256 # ! Normal = 240
 in_rects_count = 0
 grid = [[0 for _ in range(64)] for _ in range(64)]
 generationCount = 0
+generationDuration = 60
 
 # Ajanları oluşturma
 agents = [Agent(random.randint(5, 59), random.randint(0, grid_size - 1), grid=grid) for _ in range(num_agents)]
@@ -119,11 +120,11 @@ def log(generationCount, agents, count):
 
 # Güncelleme fonksiyonu
 def update(frame):
-    global agents, current_frame, in_rects_count, generationCount, targetAgent, grid
+    global agents, current_frame, in_rects_count, generationCount, targetAgent, grid, generationDuration
     current_frame = frame
     #time.sleep(0.07)
 
-    if (frame % 50 == 0) and (frame > 10): 
+    if (frame % generationDuration == 0) and (frame > 10): 
         print("STARTED NEW GENERATION : ",generationCount)
         log(generationCount, agents, in_rects_count)
 
@@ -149,7 +150,7 @@ def update(frame):
 
 
         simulation_data = {
-    'Age': (frame - 50) / 150 + 0.5,  # -4.0 => frame 0; 4.0 => frame 200, 0-1 aralığına normalize et
+    'Age': frame / generationDuration,  # -4.0 => frame 0; 4.0 => frame 200, 0-1 aralığına normalize et
     'Plr': (plr + num_agents * 8) / (2 * num_agents * 8),  # Normalize et, -num_agents*8 ila num_agents*8 arasında
     'Pfd': (pfd + num_agents * 8) / (2 * num_agents * 8),  # Aynı şekilde normalize et
     'LMy': (agent.last_move_y + 1) / 2,  # -1 ve 1 aralığını 0-1 aralığına dönüştür
