@@ -82,7 +82,6 @@ def on_Fig_click(event):
     # event.xdata ve event.ydata tıklanan yerin koordinatlarını verir
     if event.xdata is not None and event.ydata is not None:
         x, y = int(event.xdata), int(event.ydata)
-        print(f"Tıklanan yerin koordinatları: x = {x}, y = {y}")
 
         for agent in agents:
             if (agent.X == x) and (agent.Y == y):
@@ -91,7 +90,6 @@ def on_Fig_click(event):
 pause = False
 def onClick(event):
     global pause
-    print('event')
     if (event.key == "e") and (pause == False):
         print("SIMULATION STOPPED")
         pause = True
@@ -126,8 +124,7 @@ def update(frame):
     #time.sleep(0.07)
 
     if (frame % 50 == 0) and (frame > 10): 
-        print("STARTED NEW GENERATION")
-        print(generationCount)
+        print("STARTED NEW GENERATION : ",generationCount)
         log(generationCount, agents, in_rects_count)
 
         if not os.path.exists('generation_images'):

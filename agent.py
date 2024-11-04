@@ -82,19 +82,19 @@ class Agent:
             if choice == 'w':
                 new_x = self.X - 1
 
-        if output_values['Mfd'] >= 0:
+        if output_values['Mfd'] > 0:
             new_x = self.X + 1
 
-        if output_values['Mrv'] >= 0:
+        if output_values['Mrv'] > 0:
             new_x = self.X - 1
             
-        if output_values['MX'] >= 0:
+        if output_values['MX'] > 0:
             new_x= self.X + 1
             
         if output_values['MX'] < -0:
             new_x = self.X - 1
             
-        if output_values['MY'] >= 0:
+        if output_values['MY'] > 0:
             new_y += 1
             
         if output_values['MY'] < -0:
