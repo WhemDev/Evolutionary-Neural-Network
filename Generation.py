@@ -10,7 +10,7 @@ def mutate_network(agent):
     network = agent.network
     global mut
     # %1 ihtimalle mutasyon işlemi gerçekleştirin
-    if random.random() < 0.01:
+    if random.random() < 0.001:
         print("Mutation:  ")
 
         # Rastgele bir değişiklik türü seçin
@@ -38,7 +38,7 @@ def mutate_network(agent):
                 weight = connection[2]
                 print("\n\n\n\nCONNECTION : \n", connection, "\n\n")  # Mevcut ağırlık
                 mutation_amount = random.uniform(-0.5, 0.5)  # Küçük değişiklik
-                new_weight = max(-4.0, min(4.0, weight + mutation_amount))
+                new_weight = random.uniform(-4, 4)
                 connection[2] = new_weight
 
         elif mutation_type == "change_target":
@@ -57,6 +57,7 @@ def create_new_generation(agents, grid):
     survivors = [agent for agent in agents if agent.survived]
 
     # Eğer hayatta kalanlar varsa, bunlardan yeni ajanlar üretin
+    print(survivors)
     if survivors:
         new_agents = []
         for _ in range(len(agents)):
@@ -74,4 +75,5 @@ def create_new_generation(agents, grid):
         return new_agents
     else:
         # Eğer hiç hayatta kalan yoksa, rastgele yeni ajanlar oluştur
-        return [Agent(random.randint(5, 59), random.randint(0, grid_size - 1), grid=grid) for _ in range(len(agents))]
+        print("none survivors")
+        return [Agent(random.randint(3, 61), random.randint(0, grid_size - 1), grid=grid) for _ in range(len(agents))]

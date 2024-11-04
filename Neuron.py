@@ -17,7 +17,6 @@ class Neuron:
     def activate(self):
         if self.neuron_type != 'input':  # Input nöronları aktive olmaz
             total_input = sum(neuron.value * weight for neuron, weight in self.recievedConnections)
-            
             self.value = np.tanh(total_input)  # -1.0 ile 1.0 arasında çıktı
             if (self.neuron_type == 'internal') and (self.recievedConnections == []):
                 self.value = 1.0

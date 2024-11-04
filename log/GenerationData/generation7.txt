@@ -1,0 +1,133 @@
+GENERATION : 7
+Survived Count : 11
+
+
+1-
+BDy 2.4774 Mfd
+Age 2.1856 N0
+LMx 0.8145 N0
+LPf -2.8984 N1
+Plr 1.2648 N0
+Lx 1.1545 N2
+Ly 3.479 N2
+N2 -3.8715 Mrn
+
+
+2-
+BDd -3.7638 Mrn
+BDy -1.6049 Mfd
+Rnd -1.5287 N1
+Ly 0.0662 N2
+BDd 0.0447 Mrv
+Rnd -1.0298 Mrn
+Rnd -1.9152 MX
+BDy 1.8025 N1
+LPf 2.3196 MY
+
+
+3-
+Rnd -1.7429 MX
+LMy -0.925 MY
+Pfd 2.9209 MX
+LMx -2.3923 N0
+BDd 1.9193 MY
+Pfd -1.8137 N1
+Pfd -2.6519 MY
+BDx -3.9364 MY
+
+
+4-
+LMx 0.373 Mfd
+Lx -1.9852 Mrv
+N2 0.6569 MY
+N0 -2.061 N2
+N0 1.1122 Mfd
+Plr -2.8338 Mfd
+LPf -2.7108 Mrn
+N2 -0.4681 Mrn
+
+
+5-
+N1 -3.6603 MX
+LMy -3.4119 Mrv
+Rnd -3.2321 MY
+Plr -0.5456 N2
+N1 3.5402 MX
+Ly 1.6866 N0
+Ly 0.3307 MY
+BDy 1.5362 N0
+BDx 1.1027 MX
+Plr -0.3157 Mrv
+Lx -1.5798 Mrn
+
+
+6-
+BDy -1.5128 MY
+BDy 1.4141 MY
+BDd 2.104 N0
+BDd 0.6451 N2
+BDd 0.7347 N0
+LMy 2.891 Mrn
+Plr 2.0154 Mrv
+Age -2.2578 Mrv
+Lx -0.0861 Mrn
+N0 -3.3555 MY
+
+
+7-
+BDx -0.8106 MY
+Pfd 3.4861 Mrn
+Age 1.1963 Mfd
+Age 2.0144 Mfd
+Lx 0.7457 Mrn
+Rnd 1.0096 Mfd
+
+
+8-
+Pfd 1.7933 Mrn
+N1 -1.696 MY
+Rnd 3.4516 Mrn
+N0 3.386 Mrv
+LMx 0.5988 Mrn
+Plr 1.1292 Mfd
+Pfd 0.6359 Mrv
+Ly 2.1281 N2
+N1 -1.0387 N0
+N0 -2.1788 MY
+Lx -3.1916 N2
+
+
+9-
+BDx 1.4671 MY
+LMy -1.6797 N2
+N1 3.895 Mrn
+LMx 1.8752 N0
+LPf -1.0889 Mfd
+N2 3.3471 Mfd
+LMy -1.1428 MX
+Plr 3.4994 N0
+BDd -0.8594 N1
+Ly 0.4494 Mrv
+N1 -2.5259 N0
+
+
+10-
+N1 2.0371 Mrn
+Lx 3.1707 N2
+BDy 3.5841 N1
+
+
+11-
+Plr -3.1893 Mrv
+N0 0.1347 MX
+N2 2.0191 Mfd
+BDy -2.2939 Mfd
+N1 -0.7717 MX
+Lx 1.52 MY
+N0 -0.727 Mrn
+LPf 3.7919 N2
+BDy -1.8985 N0
+BDx 0.3782 N2
+LMx -2.7172 Mrv
+
+

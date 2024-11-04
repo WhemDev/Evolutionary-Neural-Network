@@ -4,8 +4,9 @@ from matplotlib.animation import FuncAnimation
 from matplotlib.patches import Rectangle
 from Agent import Agent
 import random
-import time
+import os
 import Generation
+
 
 
 # Simülasyon Parametreleri 64^2 = 4096
@@ -16,7 +17,7 @@ grid = [[0 for _ in range(64)] for _ in range(64)]
 generation = 0
 
 # Ajanları oluşturma
-agents = [Agent(random.randint(5, 59), random.randint(0, grid_size - 1), grid=grid) for _ in range(num_agents)]
+agents = [Agent(random.randint(3, 61), random.randint(0, grid_size - 1), grid=grid) for _ in range(num_agents)]
 all_positions = {(agent.X, agent.Y) for agent in agents}
 
 # Gerçek simülasyon verilerini hesaplayan yardımcı fonksiyonlar
@@ -133,6 +134,11 @@ def update(frame):
         print("STARTED NEW GENERATION")
         print(generation)
         log(generation, agents, in_rects_count)
+
+        if not os.path.exists('generation_images'):
+            os.makedirs('generation_images')
+        plt.savefig(f'generation_images/generation_{generation}.png')
+
         generation += 1
         frame=0
         current_frame = 0
@@ -168,7 +174,7 @@ def update(frame):
         agent.update(simulation_data)
         grid = agent.grid # Neural network aktivasyonu ve pozisyon güncellemesi
 
-        agent.survived = agent.X <= 4 or agent.X >= 60
+        agent.survived = (agent.X <= 4) or (agent.X >= 60)
 
     # Yeni pozisyonları scatter grafiğine ayarla
     scat.set_offsets([(agent.X, agent.Y) for agent in agents])
@@ -178,7 +184,6 @@ def update(frame):
     # Yazı alanındaki statları güncelle
     if targetAgent is not None:
         text.set_text(text_template.format(generation, current_frame, num_agents, grid_size, grid_size, in_rects_count, targetAgent.genome))
-        print(targetAgent.output_values)
     else:
         text.set_text(text_template.format(generation, current_frame, num_agents, grid_size, grid_size, in_rects_count, targetAgent))
 

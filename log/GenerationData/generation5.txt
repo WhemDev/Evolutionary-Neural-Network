@@ -1,0 +1,18 @@
+GENERATION : 5
+Survived Count : 1
+
+
+1-
+BDy 1.7292 Mrn
+LMy 0.8574 Mrv
+Lx 1.7297 Mfd
+Ly -3.8785 MX
+Age -3.5966 N1
+Age -0.9064 Mfd
+N1 -2.2775 Mrn
+N0 -0.0614 N1
+Age 0.5401 Mrv
+LMy 1.0518 N1
+Ly -2.6599 N1
+
+

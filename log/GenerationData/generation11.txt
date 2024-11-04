@@ -1,0 +1,4 @@
+GENERATION : 11
+Survived Count : 0
+
+
