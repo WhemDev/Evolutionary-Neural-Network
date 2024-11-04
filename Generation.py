@@ -1,6 +1,6 @@
-from NeuralNetwork import NeuralNetwork
-from Neuron import Neuron
-from Agent import Agent
+from neuralNetwork import NeuralNetwork
+from neuron import Neuron
+from agent import Agent
 import random
 import copy
 grid_size = 64

@@ -2,10 +2,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.animation import FuncAnimation
 from matplotlib.patches import Rectangle
-from Agent import Agent
+from agent import Agent
 import random
 import os
-import Generation
+import generation
 
 
 
@@ -14,7 +14,7 @@ grid_size = 64
 num_agents = 120 # ! Normal = 240 
 in_rects_count = 0
 grid = [[0 for _ in range(64)] for _ in range(64)]
-generation = 0
+generationCount = 0
 
 # Ajanları oluşturma
 agents = [Agent(random.randint(5, 59), random.randint(0, grid_size - 1), grid=grid) for _ in range(num_agents)]
@@ -101,13 +101,13 @@ def onClick(event):
         pause = False
         ani.event_source.start()
 
-def log(generation, agents, count):
-    file_path = f'log/GenerationData/generation{generation}.txt'
+def log(generationCount, agents, count):
+    file_path = f'log/GenerationData/generation{generationCount}.txt'
 
     # Dosyayı yazma modunda ('w') açmak
     num = 1
     with open(file_path, 'w') as file:
-        file.write(f"GENERATION : {generation}\n")
+        file.write(f"GENERATION : {generationCount}\n")
         file.write(f"Survived Count : {count}\n\n\n")
         for agent in agents:
             if agent.survived:
@@ -121,29 +121,28 @@ def log(generation, agents, count):
 
 # Güncelleme fonksiyonu
 def update(frame):
-    global agents, current_frame, in_rects_count, generation, targetAgent
+    global agents, current_frame, in_rects_count, generationCount, targetAgent, grid
     current_frame = frame
     #time.sleep(0.07)
 
     if (frame % 50 == 0) and (frame > 10): 
         print("STARTED NEW GENERATION")
-        print(generation)
-        log(generation, agents, in_rects_count)
+        print(generationCount)
+        log(generationCount, agents, in_rects_count)
 
         if not os.path.exists('generation_images'):
             os.makedirs('generation_images')
-        plt.savefig(f'generation_images/generation_{generation}.png')
+        plt.savefig(f'generation_images/generation_{generationCount}.png')
 
-        generation += 1
+        generationCount += 1
         frame=0
         current_frame = 0
         grid = [[0 for _ in range(64)] for _ in range(64)]
-        agents = Generation.create_new_generation(agents, grid)
+        agents = generation.create_new_generation(agents, grid)
 
 
     # Her ajanın sinir ağını güncelle ve pozisyonunu değiştir
     for agent in agents:
-        from Simulation import grid
         # Set creature positions
 
         agent.grid = grid
@@ -178,9 +177,9 @@ def update(frame):
 
     # Yazı alanındaki statları güncelle
     if targetAgent is not None:
-        text.set_text(text_template.format(generation, current_frame, num_agents, grid_size, grid_size, in_rects_count, targetAgent.genome))
+        text.set_text(text_template.format(generationCount, current_frame, num_agents, grid_size, grid_size, in_rects_count, targetAgent.genome))
     else:
-        text.set_text(text_template.format(generation, current_frame, num_agents, grid_size, grid_size, in_rects_count, targetAgent))
+        text.set_text(text_template.format(generationCount, current_frame, num_agents, grid_size, grid_size, in_rects_count, targetAgent))
 
 
 fig.canvas.mpl_connect('key_press_event', on_key)

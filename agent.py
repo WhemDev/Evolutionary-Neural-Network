@@ -1,7 +1,7 @@
 import numpy as np
 import random
-from NeuralNetwork import NeuralNetwork
-from Neuron import Neuron
+from neuralNetwork import NeuralNetwork
+from neuron import Neuron
 
 class Agent:
     def __init__(self, x, y, grid):
