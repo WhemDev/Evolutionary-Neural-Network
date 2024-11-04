@@ -1,0 +1,1578 @@
+GENERATION : 3
+Survived Count : 140
+
+
+1-
+BDd 1.7654 Mrn
+N0 0.5905 Mrn
+BDd 2.8967 N2
+Plr 1.7215 N2
+Pfd 2.4175 N1
+Age 0.2126 MX
+Pfd 0.9722 MX
+BDx -3.9621 Mrv
+Rnd 3.2923 MY
+Lx -2.5038 Mrn
+
+
+2-
+Lx 0.6247 MY
+BDx -1.6809 Mfd
+BDd -1.2298 MX
+BDd 0.2305 MX
+LMy -2.2646 Mfd
+N1 2.4901 N0
+LMy -2.9292 N0
+N1 -2.8623 MX
+Rnd -1.6218 Mrn
+
+
+3-
+BDd 0.9862 MX
+Rnd -3.9908 Mrv
+N1 0.6901 MX
+N2 -0.8135 N0
+Age -3.3671 N0
+Lx -3.9599 MX
+BDd 1.1779 Mfd
+N2 0.1256 Mrn
+Lx 1.3643 N1
+
+
+4-
+BDd 0.9862 MX
+Rnd -3.9908 Mrv
+N1 0.6901 MX
+N2 -0.8135 N0
+Age -3.3671 N0
+Lx -3.9599 MX
+BDd 1.1779 Mfd
+N2 0.1256 Mrn
+Lx 1.3643 N1
+
+
+5-
+BDd -2.2615 MY
+N2 -3.9686 Mfd
+Lx -3.273 Mfd
+Lx 1.398 Mrv
+LPf 3.7818 MX
+BDx 1.8394 Mrn
+N1 -0.9516 Mfd
+N0 1.1094 N2
+Plr -3.1471 N2
+N1 1.9334 MX
+Pfd 3.8907 MY
+
+
+6-
+Ly 0.0505 Mfd
+Rnd -1.4399 Mrn
+Pfd 2.6788 Mfd
+Lx 2.5218 N1
+Plr -0.5731 N1
+
+
+7-
+Ly 2.6392 Mrn
+LMy -0.2723 Mrn
+Age 0.1437 N2
+BDy -3.7712 Mrv
+Plr 3.0243 Mfd
+Age 2.6522 Mrv
+BDd 3.1932 Mrv
+Rnd 0.5488 N0
+LPf -0.5484 MY
+LPf -1.1871 Mrn
+Lx 3.2726 N0
+
+
+8-
+LPf 2.6523 MX
+BDd 1.2251 N1
+Ly -3.8655 N2
+BDx 0.9642 Mrn
+LPf 3.1989 N2
+
+
+9-
+LMx 2.7174 Mrn
+Age -2.0983 Mrv
+Lx -1.4449 Mrv
+Ly 1.0094 Mrn
+LPf 0.7434 MX
+Plr 1.9256 Mfd
+LMx -2.457 N1
+N0 -1.77 MX
+Lx 1.3641 Mrv
+N1 -2.781 N2
+
+
+10-
+Age 0.0986 Mrn
+Lx 3.7677 MX
+
+
+11-
+Rnd -0.578 MY
+Lx -3.1426 N2
+N0 3.6286 MX
+Rnd -0.5163 Mrv
+Rnd 2.2333 Mrv
+Lx 0.0475 MX
+BDx 1.1285 Mrv
+LPf 2.2551 N2
+
+
+12-
+LPf 2.6523 MX
+BDd 1.2251 N1
+Ly -3.8655 N2
+BDx 0.9642 Mrn
+LPf 3.1989 N2
+
+
+13-
+LPf -1.2174 MX
+Age -2.231 Mfd
+Rnd 1.3957 Mrv
+LMx 2.9451 N2
+LMx 3.3115 Mrn
+Plr -2.6106 N1
+LPf -0.2556 N2
+LMx -0.968 N1
+N2 -2.5013 Mrn
+
+
+14-
+Lx 3.56 Mfd
+LPf -2.0273 Mfd
+BDx 2.7643 N2
+Ly -3.0379 Mfd
+N2 -0.327 Mfd
+N1 3.6516 Mrn
+BDx 1.6004 Mrv
+LMy -1.536 Mfd
+
+
+15-
+BDd 1.2909 Mrn
+N2 -0.6278 Mrv
+Age -1.7679 N1
+LPf -1.4564 Mrv
+N1 -2.8641 MX
+LMy 3.9458 MY
+Ly -3.4252 MX
+N1 -3.3375 Mrn
+N1 0.3652 MX
+
+
+16-
+Rnd -0.578 MY
+Lx -3.1426 N2
+N0 3.6286 MX
+Rnd -0.5163 Mrv
+Rnd 2.2333 Mrv
+Lx 0.0475 MX
+BDx 1.1285 Mrv
+LPf 2.2551 N2
+
+
+17-
+Lx 3.56 Mfd
+LPf -2.0273 Mfd
+BDx 2.7643 N2
+Ly -3.0379 Mfd
+N2 -0.327 Mfd
+N1 3.6516 Mrn
+BDx 1.6004 Mrv
+LMy -1.536 Mfd
+
+
+18-
+Lx 1.9762 MY
+Plr -1.6377 Mfd
+Age -0.0406 Mfd
+N1 -0.8304 N0
+LMx 0.354 MY
+Plr 3.1994 Mrn
+Age -1.7356 MY
+Ly -3.8243 N1
+BDy -3.6983 MY
+Ly 3.0641 Mrv
+Ly 0.1748 N1
+
+
+19-
+Plr -1.9926 MX
+BDy -2.655 Mfd
+BDd -1.732 Mrn
+Age -2.1338 Mrn
+N1 -1.4435 Mfd
+LPf -2.6074 Mfd
+LMx 1.1118 N2
+Age -2.4246 Mfd
+
+
+20-
+LMx 2.7174 Mrn
+Age -2.0983 Mrv
+Lx -1.4449 Mrv
+Ly 1.0094 Mrn
+LPf 0.7434 MX
+Plr 1.9256 Mfd
+LMx -2.457 N1
+N0 -1.77 MX
+Lx 1.3641 Mrv
+N1 -2.781 N2
+
+
+21-
+Plr -1.9926 MX
+BDy -2.655 Mfd
+BDd -1.732 Mrn
+Age -2.1338 Mrn
+N1 -1.4435 Mfd
+LPf -2.6074 Mfd
+LMx 1.1118 N2
+Age -2.4246 Mfd
+
+
+22-
+LPf -1.2174 MX
+Age -2.231 Mfd
+Rnd 1.3957 Mrv
+LMx 2.9451 N2
+LMx 3.3115 Mrn
+Plr -2.6106 N1
+LPf -0.2556 N2
+LMx -0.968 N1
+N2 -2.5013 Mrn
+
+
+23-
+Rnd -0.578 MY
+Lx -3.1426 N2
+N0 3.6286 MX
+Rnd -0.5163 Mrv
+Rnd 2.2333 Mrv
+Lx 0.0475 MX
+BDx 1.1285 Mrv
+LPf 2.2551 N2
+
+
+24-
+LMx 2.7174 Mrn
+Age -2.0983 Mrv
+Lx -1.4449 Mrv
+Ly 1.0094 Mrn
+LPf 0.7434 MX
+Plr 1.9256 Mfd
+LMx -2.457 N1
+N0 -1.77 MX
+Lx 1.3641 Mrv
+N1 -2.781 N2
+
+
+25-
+Lx 1.9762 MY
+Plr -1.6377 Mfd
+Age -0.0406 Mfd
+N1 -0.8304 N0
+LMx 0.354 MY
+Plr 3.1994 Mrn
+Age -1.7356 MY
+Ly -3.8243 N1
+BDy -3.6983 MY
+Ly 3.0641 Mrv
+Ly 0.1748 N1
+
+
+26-
+Ly 2.6392 Mrn
+LMy -0.2723 Mrn
+Age 0.1437 N2
+BDy -3.7712 Mrv
+Plr 3.0243 Mfd
+Age 2.6522 Mrv
+BDd 3.1932 Mrv
+Rnd 0.5488 N0
+LPf -0.5484 MY
+LPf -1.1871 Mrn
+Lx 3.2726 N0
+
+
+27-
+Plr 2.2003 Mfd
+Pfd 2.0174 N2
+N1 3.6664 N2
+N0 -1.6753 N1
+Age 0.9666 N2
+N1 -2.5707 Mfd
+Rnd 0.861 MY
+Lx 1.5324 MX
+Rnd -1.928 MX
+
+
+28-
+LPf 2.6523 MX
+BDd 1.2251 N1
+Ly -3.8655 N2
+BDx 0.9642 Mrn
+LPf 3.1989 N2
+
+
+29-
+LPf -1.2174 MX
+Age -2.231 Mfd
+Rnd 1.3957 Mrv
+LMx 2.9451 N2
+LMx 3.3115 Mrn
+Plr -2.6106 N1
+LPf -0.2556 N2
+LMx -0.968 N1
+N2 -2.5013 Mrn
+
+
+30-
+LMx 2.7174 Mrn
+Age -2.0983 Mrv
+Lx -1.4449 Mrv
+Ly 1.0094 Mrn
+LPf 0.7434 MX
+Plr 1.9256 Mfd
+LMx -2.457 N1
+N0 -1.77 MX
+Lx 1.3641 Mrv
+N1 -2.781 N2
+
+
+31-
+Ly 0.0505 Mfd
+Rnd -1.4399 Mrn
+Pfd 2.6788 Mfd
+Lx 2.5218 N1
+Plr -0.5731 N1
+
+
+32-
+Rnd -0.578 MY
+Lx -3.1426 N2
+N0 3.6286 MX
+Rnd -0.5163 Mrv
+Rnd 2.2333 Mrv
+Lx 0.0475 MX
+BDx 1.1285 Mrv
+LPf 2.2551 N2
+
+
+33-
+Age 0.0986 Mrn
+Lx 3.7677 MX
+
+
+34-
+Ly 2.6392 Mrn
+LMy -0.2723 Mrn
+Age 0.1437 N2
+BDy -3.7712 Mrv
+Plr 3.0243 Mfd
+Age 2.6522 Mrv
+BDd 3.1932 Mrv
+Rnd 0.5488 N0
+LPf -0.5484 MY
+LPf -1.1871 Mrn
+Lx 3.2726 N0
+
+
+35-
+Age 0.0986 Mrn
+Lx 3.7677 MX
+
+
+36-
+LPf -1.2339 Mrv
+N0 -1.3865 Mfd
+Lx 2.1154 Mfd
+LMx 3.4761 Mfd
+Lx 0.7612 Mrn
+BDx -2.5928 N0
+Pfd 1.7619 MX
+N1 -1.7138 MY
+Pfd 1.6044 N0
+
+
+37-
+N2 1.5366 Mrn
+BDy -1.3111 N1
+N1 2.2885 Mrn
+BDd 1.6601 Mfd
+Rnd 3.9101 MY
+N1 -1.4311 Mfd
+Plr 1.3975 N1
+N2 -2.9076 N1
+
+
+38-
+BDd 1.2909 Mrn
+N2 -0.6278 Mrv
+Age -1.7679 N1
+LPf -1.4564 Mrv
+N1 -2.8641 MX
+LMy 3.9458 MY
+Ly -3.4252 MX
+N1 -3.3375 Mrn
+N1 0.3652 MX
+
+
+39-
+Lx 3.56 Mfd
+LPf -2.0273 Mfd
+BDx 2.7643 N2
+Ly -3.0379 Mfd
+N2 -0.327 Mfd
+N1 3.6516 Mrn
+BDx 1.6004 Mrv
+LMy -1.536 Mfd
+
+
+40-
+Lx 3.8878 Mrn
+N0 2.5599 N2
+Pfd -0.0917 MX
+Lx -3.6165 Mfd
+Pfd 2.8636 N0
+N1 0.8305 MY
+Ly -2.5079 MX
+
+
+41-
+N1 2.9938 Mrn
+BDx -1.7764 MX
+BDx -2.7884 Mrv
+BDd 1.6283 MY
+LPf 1.3183 Mrn
+N0 3.2661 Mfd
+Lx -0.6965 MX
+Age 1.1885 N0
+N0 1.2669 MY
+LMx 0.0859 N0
+Plr -3.2369 N2
+
+
+42-
+LPf 2.6523 MX
+BDd 1.2251 N1
+Ly -3.8655 N2
+BDx 0.9642 Mrn
+LPf 3.1989 N2
+
+
+43-
+LPf -1.2174 MX
+Age -2.231 Mfd
+Rnd 1.3957 Mrv
+LMx 2.9451 N2
+LMx 3.3115 Mrn
+Plr -2.6106 N1
+LPf -0.2556 N2
+LMx -0.968 N1
+N2 -2.5013 Mrn
+
+
+44-
+Plr 2.2003 Mfd
+Pfd 2.0174 N2
+N1 3.6664 N2
+N0 -1.6753 N1
+Age 0.9666 N2
+N1 -2.5707 Mfd
+Rnd 0.861 MY
+Lx 1.5324 MX
+Rnd -1.928 MX
+
+
+45-
+LPf -1.2339 Mrv
+N0 -1.3865 Mfd
+Lx 2.1154 Mfd
+LMx 3.4761 Mfd
+Lx 0.7612 Mrn
+BDx -2.5928 N0
+Pfd 1.7619 MX
+N1 -1.7138 MY
+Pfd 1.6044 N0
+
+
+46-
+BDd 1.2909 Mrn
+N2 -0.6278 Mrv
+Age -1.7679 N1
+LPf -1.4564 Mrv
+N1 -2.8641 MX
+LMy 3.9458 MY
+Ly -3.4252 MX
+N1 -3.3375 Mrn
+N1 0.3652 MX
+
+
+47-
+BDd 0.9862 MX
+Rnd -3.9908 Mrv
+N1 0.6901 MX
+N2 -0.8135 N0
+Age -3.3671 N0
+Lx -3.9599 MX
+BDd 1.1779 Mfd
+N2 0.1256 Mrn
+Lx 1.3643 N1
+
+
+48-
+Age 0.0986 Mrn
+Lx 3.7677 MX
+
+
+49-
+LPf -1.2174 MX
+Age -2.231 Mfd
+Rnd 1.3957 Mrv
+LMx 2.9451 N2
+LMx 3.3115 Mrn
+Plr -2.6106 N1
+LPf -0.2556 N2
+LMx -0.968 N1
+N2 -2.5013 Mrn
+
+
+50-
+LMx 2.7174 Mrn
+Age -2.0983 Mrv
+Lx -1.4449 Mrv
+Ly 1.0094 Mrn
+LPf 0.7434 MX
+Plr 1.9256 Mfd
+LMx -2.457 N1
+N0 -1.77 MX
+Lx 1.3641 Mrv
+N1 -2.781 N2
+
+
+51-
+Age 0.0986 Mrn
+Lx 3.7677 MX
+
+
+52-
+Lx 2.1875 Mrn
+N2 1.8607 Mrv
+Ly 2.4067 MX
+LMy 2.1659 Mfd
+LMy 3.3171 Mrn
+N0 3.7406 N2
+BDd -0.4088 MX
+
+
+53-
+BDd 1.7654 Mrn
+N0 0.5905 Mrn
+BDd 2.8967 N2
+Plr 1.7215 N2
+Pfd 2.4175 N1
+Age 0.2126 MX
+Pfd 0.9722 MX
+BDx -3.9621 Mrv
+Rnd 3.2923 MY
+Lx -2.5038 Mrn
+
+
+54-
+Lx 1.9762 MY
+Plr -1.6377 Mfd
+Age -0.0406 Mfd
+N1 -0.8304 N0
+LMx 0.354 MY
+Plr 3.1994 Mrn
+Age -1.7356 MY
+Ly -3.8243 N1
+BDy -3.6983 MY
+Ly 3.0641 Mrv
+Ly 0.1748 N1
+
+
+55-
+Rnd -0.578 MY
+Lx -3.1426 N2
+N0 3.6286 MX
+Rnd -0.5163 Mrv
+Rnd 2.2333 Mrv
+Lx 0.0475 MX
+BDx 1.1285 Mrv
+LPf 2.2551 N2
+
+
+56-
+Lx 1.9762 MY
+Plr -1.6377 Mfd
+Age -0.0406 Mfd
+N1 -0.8304 N0
+LMx 0.354 MY
+Plr 3.1994 Mrn
+Age -1.7356 MY
+Ly -3.8243 N1
+BDy -3.6983 MY
+Ly 3.0641 Mrv
+Ly 0.1748 N1
+
+
+57-
+Ly 0.0505 Mfd
+Rnd -1.4399 Mrn
+Pfd 2.6788 Mfd
+Lx 2.5218 N1
+Plr -0.5731 N1
+
+
+58-
+LPf 2.6523 MX
+BDd 1.2251 N1
+Ly -3.8655 N2
+BDx 0.9642 Mrn
+LPf 3.1989 N2
+
+
+59-
+Lx 1.9762 MY
+Plr -1.6377 Mfd
+Age -0.0406 Mfd
+N1 -0.8304 N0
+LMx 0.354 MY
+Plr 3.1994 Mrn
+Age -1.7356 MY
+Ly -3.8243 N1
+BDy -3.6983 MY
+Ly 3.0641 Mrv
+Ly 0.1748 N1
+
+
+60-
+LMx 2.7174 Mrn
+Age -2.0983 Mrv
+Lx -1.4449 Mrv
+Ly 1.0094 Mrn
+LPf 0.7434 MX
+Plr 1.9256 Mfd
+LMx -2.457 N1
+N0 -1.77 MX
+Lx 1.3641 Mrv
+N1 -2.781 N2
+
+
+61-
+LMx 2.7174 Mrn
+Age -2.0983 Mrv
+Lx -1.4449 Mrv
+Ly 1.0094 Mrn
+LPf 0.7434 MX
+Plr 1.9256 Mfd
+LMx -2.457 N1
+N0 -1.77 MX
+Lx 1.3641 Mrv
+N1 -2.781 N2
+
+
+62-
+BDd -2.2615 MY
+N2 -3.9686 Mfd
+Lx -3.273 Mfd
+Lx 1.398 Mrv
+LPf 3.7818 MX
+BDx 1.8394 Mrn
+N1 -0.9516 Mfd
+N0 1.1094 N2
+Plr -3.1471 N2
+N1 1.9334 MX
+Pfd 3.8907 MY
+
+
+63-
+Lx 3.8878 Mrn
+N0 2.5599 N2
+Pfd -0.0917 MX
+Lx -3.6165 Mfd
+Pfd 2.8636 N0
+N1 0.8305 MY
+Ly -2.5079 MX
+
+
+64-
+Ly 2.6392 Mrn
+LMy -0.2723 Mrn
+Age 0.1437 N2
+BDy -3.7712 Mrv
+Plr 3.0243 Mfd
+Age 2.6522 Mrv
+BDd 3.1932 Mrv
+Rnd 0.5488 N0
+LPf -0.5484 MY
+LPf -1.1871 Mrn
+Lx 3.2726 N0
+
+
+65-
+Ly 2.6392 Mrn
+LMy -0.2723 Mrn
+Age 0.1437 N2
+BDy -3.7712 Mrv
+Plr 3.0243 Mfd
+Age 2.6522 Mrv
+BDd 3.1932 Mrv
+Rnd 0.5488 N0
+LPf -0.5484 MY
+LPf -1.1871 Mrn
+Lx 3.2726 N0
+
+
+66-
+Ly 0.0505 Mfd
+Rnd -1.4399 Mrn
+Pfd 2.6788 Mfd
+Lx 2.5218 N1
+Plr -0.5731 N1
+
+
+67-
+Ly 0.0505 Mfd
+Rnd -1.4399 Mrn
+Pfd 2.6788 Mfd
+Lx 2.5218 N1
+Plr -0.5731 N1
+
+
+68-
+BDd 1.2909 Mrn
+N2 -0.6278 Mrv
+Age -1.7679 N1
+LPf -1.4564 Mrv
+N1 -2.8641 MX
+LMy 3.9458 MY
+Ly -3.4252 MX
+N1 -3.3375 Mrn
+N1 0.3652 MX
+
+
+69-
+Lx 0.6247 MY
+BDx -1.6809 Mfd
+BDd -1.2298 MX
+BDd 0.2305 MX
+LMy -2.2646 Mfd
+N1 2.4901 N0
+LMy -2.9292 N0
+N1 -2.8623 MX
+Rnd -1.6218 Mrn
+
+
+70-
+Plr 2.2003 Mfd
+Pfd 2.0174 N2
+N1 3.6664 N2
+N0 -1.6753 N1
+Age 0.9666 N2
+N1 -2.5707 Mfd
+Rnd 0.861 MY
+Lx 1.5324 MX
+Rnd -1.928 MX
+
+
+71-
+Rnd -0.578 MY
+Lx -3.1426 N2
+N0 3.6286 MX
+Rnd -0.5163 Mrv
+Rnd 2.2333 Mrv
+Lx 0.0475 MX
+BDx 1.1285 Mrv
+LPf 2.2551 N2
+
+
+72-
+Ly 2.6392 Mrn
+LMy -0.2723 Mrn
+Age 0.1437 N2
+BDy -3.7712 Mrv
+Plr 3.0243 Mfd
+Age 2.6522 Mrv
+BDd 3.1932 Mrv
+Rnd 0.5488 N0
+LPf -0.5484 MY
+LPf -1.1871 Mrn
+Lx 3.2726 N0
+
+
+73-
+Lx 3.56 Mfd
+LPf -2.0273 Mfd
+BDx 2.7643 N2
+Ly -3.0379 Mfd
+N2 -0.327 Mfd
+N1 3.6516 Mrn
+BDx 1.6004 Mrv
+LMy -1.536 Mfd
+
+
+74-
+BDd 1.7654 Mrn
+N0 0.5905 Mrn
+BDd 2.8967 N2
+Plr 1.7215 N2
+Pfd 2.4175 N1
+Age 0.2126 MX
+Pfd 0.9722 MX
+BDx -3.9621 Mrv
+Rnd 3.2923 MY
+Lx -2.5038 Mrn
+
+
+75-
+BDd 1.7654 Mrn
+N0 0.5905 Mrn
+BDd 2.8967 N2
+Plr 1.7215 N2
+Pfd 2.4175 N1
+Age 0.2126 MX
+Pfd 0.9722 MX
+BDx -3.9621 Mrv
+Rnd 3.2923 MY
+Lx -2.5038 Mrn
+
+
+76-
+Lx 3.56 Mfd
+LPf -2.0273 Mfd
+BDx 2.7643 N2
+Ly -3.0379 Mfd
+N2 -0.327 Mfd
+N1 3.6516 Mrn
+BDx 1.6004 Mrv
+LMy -1.536 Mfd
+
+
+77-
+BDd 0.9862 MX
+Rnd -3.9908 Mrv
+N1 0.6901 MX
+N2 -0.8135 N0
+Age -3.3671 N0
+Lx -3.9599 MX
+BDd 1.1779 Mfd
+N2 0.1256 Mrn
+Lx 1.3643 N1
+
+
+78-
+Lx 1.9762 MY
+Plr -1.6377 Mfd
+Age -0.0406 Mfd
+N1 -0.8304 N0
+LMx 0.354 MY
+Plr 3.1994 Mrn
+Age -1.7356 MY
+Ly -3.8243 N1
+BDy -3.6983 MY
+Ly 3.0641 Mrv
+Ly 0.1748 N1
+
+
+79-
+Lx 3.56 Mfd
+LPf -2.0273 Mfd
+BDx 2.7643 N2
+Ly -3.0379 Mfd
+N2 -0.327 Mfd
+N1 3.6516 Mrn
+BDx 1.6004 Mrv
+LMy -1.536 Mfd
+
+
+80-
+Rnd -0.578 MY
+Lx -3.1426 N2
+N0 3.6286 MX
+Rnd -0.5163 Mrv
+Rnd 2.2333 Mrv
+Lx 0.0475 MX
+BDx 1.1285 Mrv
+LPf 2.2551 N2
+
+
+81-
+Plr 2.2003 Mfd
+Pfd 2.0174 N2
+N1 3.6664 N2
+N0 -1.6753 N1
+Age 0.9666 N2
+N1 -2.5707 Mfd
+Rnd 0.861 MY
+Lx 1.5324 MX
+Rnd -1.928 MX
+
+
+82-
+Ly 2.6392 Mrn
+LMy -0.2723 Mrn
+Age 0.1437 N2
+BDy -3.7712 Mrv
+Plr 3.0243 Mfd
+Age 2.6522 Mrv
+BDd 3.1932 Mrv
+Rnd 0.5488 N0
+LPf -0.5484 MY
+LPf -1.1871 Mrn
+Lx 3.2726 N0
+
+
+83-
+LMx 2.7174 Mrn
+Age -2.0983 Mrv
+Lx -1.4449 Mrv
+Ly 1.0094 Mrn
+LPf 0.7434 MX
+Plr 1.9256 Mfd
+LMx -2.457 N1
+N0 -1.77 MX
+Lx 1.3641 Mrv
+N1 -2.781 N2
+
+
+84-
+Rnd -0.578 MY
+Lx -3.1426 N2
+N0 3.6286 MX
+Rnd -0.5163 Mrv
+Rnd 2.2333 Mrv
+Lx 0.0475 MX
+BDx 1.1285 Mrv
+LPf 2.2551 N2
+
+
+85-
+Lx 1.9762 MY
+Plr -1.6377 Mfd
+Age -0.0406 Mfd
+N1 -0.8304 N0
+LMx 0.354 MY
+Plr 3.1994 Mrn
+Age -1.7356 MY
+Ly -3.8243 N1
+BDy -3.6983 MY
+Ly 3.0641 Mrv
+Ly 0.1748 N1
+
+
+86-
+N0 3.7955 Mrn
+LPf -1.5118 MY
+Lx 2.8101 Mfd
+Ly -0.1476 N2
+LMy -0.5016 Mrv
+N0 -1.2415 MY
+LPf -0.3288 N1
+BDd 1.8557 N1
+Pfd -0.6939 Mfd
+N2 -0.5181 Mfd
+Ly -0.9165 MX
+
+
+87-
+LPf 2.6523 MX
+BDd 1.2251 N1
+Ly -3.8655 N2
+BDx 0.9642 Mrn
+LPf 3.1989 N2
+
+
+88-
+Lx 3.56 Mfd
+LPf -2.0273 Mfd
+BDx 2.7643 N2
+Ly -3.0379 Mfd
+N2 -0.327 Mfd
+N1 3.6516 Mrn
+BDx 1.6004 Mrv
+LMy -1.536 Mfd
+
+
+89-
+BDd -2.2615 MY
+N2 -3.9686 Mfd
+Lx -3.273 Mfd
+Lx 1.398 Mrv
+LPf 3.7818 MX
+BDx 1.8394 Mrn
+N1 -0.9516 Mfd
+N0 1.1094 N2
+Plr -3.1471 N2
+N1 1.9334 MX
+Pfd 3.8907 MY
+
+
+90-
+LPf -1.2174 MX
+Age -2.231 Mfd
+Rnd 1.3957 Mrv
+LMx 2.9451 N2
+LMx 3.3115 Mrn
+Plr -2.6106 N1
+LPf -0.2556 N2
+LMx -0.968 N1
+N2 -2.5013 Mrn
+
+
+91-
+BDd 1.2909 Mrn
+N2 -0.6278 Mrv
+Age -1.7679 N1
+LPf -1.4564 Mrv
+N1 -2.8641 MX
+LMy 3.9458 MY
+Ly -3.4252 MX
+N1 -3.3375 Mrn
+N1 0.3652 MX
+
+
+92-
+N2 -3.9442 Mfd
+LPf -2.6656 N2
+N0 2.0169 MX
+BDy 2.4146 N0
+BDd 0.5826 Mfd
+Lx 3.2693 MX
+BDx 2.4549 N0
+LMx -0.634 MY
+
+
+93-
+LPf -1.2174 MX
+Age -2.231 Mfd
+Rnd 1.3957 Mrv
+LMx 2.9451 N2
+LMx 3.3115 Mrn
+Plr -2.6106 N1
+LPf -0.2556 N2
+LMx -0.968 N1
+N2 -2.5013 Mrn
+
+
+94-
+LMx 2.7174 Mrn
+Age -2.0983 Mrv
+Lx -1.4449 Mrv
+Ly 1.0094 Mrn
+LPf 0.7434 MX
+Plr 1.9256 Mfd
+LMx -2.457 N1
+N0 -1.77 MX
+Lx 1.3641 Mrv
+N1 -2.781 N2
+
+
+95-
+N2 1.5366 Mrn
+BDy -1.3111 N1
+N1 2.2885 Mrn
+BDd 1.6601 Mfd
+Rnd 3.9101 MY
+N1 -1.4311 Mfd
+Plr 1.3975 N1
+N2 -2.9076 N1
+
+
+96-
+LPf -1.2339 Mrv
+N0 -1.3865 Mfd
+Lx 2.1154 Mfd
+LMx 3.4761 Mfd
+Lx 0.7612 Mrn
+BDx -2.5928 N0
+Pfd 1.7619 MX
+N1 -1.7138 MY
+Pfd 1.6044 N0
+
+
+97-
+LPf 2.6523 MX
+BDd 1.2251 N1
+Ly -3.8655 N2
+BDx 0.9642 Mrn
+LPf 3.1989 N2
+
+
+98-
+Ly 3.2572 MX
+Ly 3.6972 N2
+N2 -0.4299 Mfd
+LMx -1.2542 Mfd
+N0 0.9859 Mfd
+Plr 0.0264 N1
+LMy -1.4813 Mrn
+Plr 0.7436 MX
+BDd -0.2635 Mrn
+
+
+99-
+Ly 0.0505 Mfd
+Rnd -1.4399 Mrn
+Pfd 2.6788 Mfd
+Lx 2.5218 N1
+Plr -0.5731 N1
+
+
+100-
+LMx 2.7174 Mrn
+Age -2.0983 Mrv
+Lx -1.4449 Mrv
+Ly 1.0094 Mrn
+LPf 0.7434 MX
+Plr 1.9256 Mfd
+LMx -2.457 N1
+N0 -1.77 MX
+Lx 1.3641 Mrv
+N1 -2.781 N2
+
+
+101-
+Ly 0.0505 Mfd
+Rnd -1.4399 Mrn
+Pfd 2.6788 Mfd
+Lx 2.5218 N1
+Plr -0.5731 N1
+
+
+102-
+Ly 2.6392 Mrn
+LMy -0.2723 Mrn
+Age 0.1437 N2
+BDy -3.7712 Mrv
+Plr 3.0243 Mfd
+Age 2.6522 Mrv
+BDd 3.1932 Mrv
+Rnd 0.5488 N0
+LPf -0.5484 MY
+LPf -1.1871 Mrn
+Lx 3.2726 N0
+
+
+103-
+Pfd 3.4913 MX
+Ly 1.5512 N1
+N1 -2.7197 N2
+Ly -3.1571 Mrn
+LMx 1.9306 MY
+N1 -2.7753 Mrn
+Age 0.2501 N2
+
+
+104-
+Ly 0.0505 Mfd
+Rnd -1.4399 Mrn
+Pfd 2.6788 Mfd
+Lx 2.5218 N1
+Plr -0.5731 N1
+
+
+105-
+N0 3.7955 Mrn
+LPf -1.5118 MY
+Lx 2.8101 Mfd
+Ly -0.1476 N2
+LMy -0.5016 Mrv
+N0 -1.2415 MY
+LPf -0.3288 N1
+BDd 1.8557 N1
+Pfd -0.6939 Mfd
+N2 -0.5181 Mfd
+Ly -0.9165 MX
+
+
+106-
+LMx 2.7174 Mrn
+Age -2.0983 Mrv
+Lx -1.4449 Mrv
+Ly 1.0094 Mrn
+LPf 0.7434 MX
+Plr 1.9256 Mfd
+LMx -2.457 N1
+N0 -1.77 MX
+Lx 1.3641 Mrv
+N1 -2.781 N2
+
+
+107-
+Age 0.0986 Mrn
+Lx 3.7677 MX
+
+
+108-
+Rnd -0.578 MY
+Lx -3.1426 N2
+N0 3.6286 MX
+Rnd -0.5163 Mrv
+Rnd 2.2333 Mrv
+Lx 0.0475 MX
+BDx 1.1285 Mrv
+LPf 2.2551 N2
+
+
+109-
+LMx 2.7174 Mrn
+Age -2.0983 Mrv
+Lx -1.4449 Mrv
+Ly 1.0094 Mrn
+LPf 0.7434 MX
+Plr 1.9256 Mfd
+LMx -2.457 N1
+N0 -1.77 MX
+Lx 1.3641 Mrv
+N1 -2.781 N2
+
+
+110-
+Plr 2.2003 Mfd
+Pfd 2.0174 N2
+N1 3.6664 N2
+N0 -1.6753 N1
+Age 0.9666 N2
+N1 -2.5707 Mfd
+Rnd 0.861 MY
+Lx 1.5324 MX
+Rnd -1.928 MX
+
+
+111-
+Lx 2.1875 Mrn
+N2 1.8607 Mrv
+Ly 2.4067 MX
+LMy 2.1659 Mfd
+LMy 3.3171 Mrn
+N0 3.7406 N2
+BDd -0.4088 MX
+
+
+112-
+Plr -1.9926 MX
+BDy -2.655 Mfd
+BDd -1.732 Mrn
+Age -2.1338 Mrn
+N1 -1.4435 Mfd
+LPf -2.6074 Mfd
+LMx 1.1118 N2
+Age -2.4246 Mfd
+
+
+113-
+Plr 2.2003 Mfd
+Pfd 2.0174 N2
+N1 3.6664 N2
+N0 -1.6753 N1
+Age 0.9666 N2
+N1 -2.5707 Mfd
+Rnd 0.861 MY
+Lx 1.5324 MX
+Rnd -1.928 MX
+
+
+114-
+LPf -1.2174 MX
+Age -2.231 Mfd
+Rnd 1.3957 Mrv
+LMx 2.9451 N2
+LMx 3.3115 Mrn
+Plr -2.6106 N1
+LPf -0.2556 N2
+LMx -0.968 N1
+N2 -2.5013 Mrn
+
+
+115-
+Rnd -0.578 MY
+Lx -3.1426 N2
+N0 3.6286 MX
+Rnd -0.5163 Mrv
+Rnd 2.2333 Mrv
+Lx 0.0475 MX
+BDx 1.1285 Mrv
+LPf 2.2551 N2
+
+
+116-
+Plr -1.9926 MX
+BDy -2.655 Mfd
+BDd -1.732 Mrn
+Age -2.1338 Mrn
+N1 -1.4435 Mfd
+LPf -2.6074 Mfd
+LMx 1.1118 N2
+Age -2.4246 Mfd
+
+
+117-
+Ly 2.6392 Mrn
+LMy -0.2723 Mrn
+Age 0.1437 N2
+BDy -3.7712 Mrv
+Plr 3.0243 Mfd
+Age 2.6522 Mrv
+BDd 3.1932 Mrv
+Rnd 0.5488 N0
+LPf -0.5484 MY
+LPf -1.1871 Mrn
+Lx 3.2726 N0
+
+
+118-
+N0 1.9155 Mfd
+N2 1.9437 Mfd
+Age -3.5544 Mrv
+Pfd 0.4688 Mfd
+N1 2.6938 N2
+LPf -1.7273 Mrn
+Ly 0.4926 Mrv
+Age 2.5309 MX
+N1 -0.2948 N2
+Ly 2.3415 Mrn
+BDy -2.9287 MX
+
+
+119-
+LMx 2.7174 Mrn
+Age -2.0983 Mrv
+Lx -1.4449 Mrv
+Ly 1.0094 Mrn
+LPf 0.7434 MX
+Plr 1.9256 Mfd
+LMx -2.457 N1
+N0 -1.77 MX
+Lx 1.3641 Mrv
+N1 -2.781 N2
+
+
+120-
+Lx 3.56 Mfd
+LPf -2.0273 Mfd
+BDx 2.7643 N2
+Ly -3.0379 Mfd
+N2 -0.327 Mfd
+N1 3.6516 Mrn
+BDx 1.6004 Mrv
+LMy -1.536 Mfd
+
+
+121-
+Age 0.0986 Mrn
+Lx 3.7677 MX
+
+
+122-
+LPf 0.8399 MX
+N1 3.0799 MY
+BDy -1.2899 N1
+LPf 2.3839 Mrv
+
+
+123-
+Pfd 3.7745 Mrn
+BDd -3.9853 N0
+LMy 1.7612 MY
+Pfd 0.1795 MX
+LMx -1.28 MX
+BDy 2.4087 N1
+N0 1.8444 Mrv
+Pfd -3.389 Mrv
+Age -1.7988 Mrv
+Pfd -3.6061 MX
+
+
+124-
+BDy -0.1435 Mrn
+N2 -1.8046 Mrn
+Lx 2.824 Mfd
+Age 3.276 N2
+Age 3.3201 Mrv
+LPf 2.9501 MX
+LMx 1.9482 MX
+Ly 0.6426 Mfd
+LMy -0.1959 N0
+BDy 2.0054 N0
+
+
+125-
+Lx 3.56 Mfd
+LPf -2.0273 Mfd
+BDx 2.7643 N2
+Ly -3.0379 Mfd
+N2 -0.327 Mfd
+N1 3.6516 Mrn
+BDx 1.6004 Mrv
+LMy -1.536 Mfd
+
+
+126-
+Lx 3.56 Mfd
+LPf -2.0273 Mfd
+BDx 2.7643 N2
+Ly -3.0379 Mfd
+N2 -0.327 Mfd
+N1 3.6516 Mrn
+BDx 1.6004 Mrv
+LMy -1.536 Mfd
+
+
+127-
+Lx 0.6247 MY
+BDx -1.6809 Mfd
+BDd -1.2298 MX
+BDd 0.2305 MX
+LMy -2.2646 Mfd
+N1 2.4901 N0
+LMy -2.9292 N0
+N1 -2.8623 MX
+Rnd -1.6218 Mrn
+
+
+128-
+Ly 0.0505 Mfd
+Rnd -1.4399 Mrn
+Pfd 2.6788 Mfd
+Lx 2.5218 N1
+Plr -0.5731 N1
+
+
+129-
+Age 0.0986 Mrn
+Lx 3.7677 MX
+
+
+130-
+LMx 2.7174 Mrn
+Age -2.0983 Mrv
+Lx -1.4449 Mrv
+Ly 1.0094 Mrn
+LPf 0.7434 MX
+Plr 1.9256 Mfd
+LMx -2.457 N1
+N0 -1.77 MX
+Lx 1.3641 Mrv
+N1 -2.781 N2
+
+
+131-
+Lx 2.1875 Mrn
+N2 1.8607 Mrv
+Ly 2.4067 MX
+LMy 2.1659 Mfd
+LMy 3.3171 Mrn
+N0 3.7406 N2
+BDd -0.4088 MX
+
+
+132-
+Ly 2.6392 Mrn
+LMy -0.2723 Mrn
+Age 0.1437 N2
+BDy -3.7712 Mrv
+Plr 3.0243 Mfd
+Age 2.6522 Mrv
+BDd 3.1932 Mrv
+Rnd 0.5488 N0
+LPf -0.5484 MY
+LPf -1.1871 Mrn
+Lx 3.2726 N0
+
+
+133-
+Age 0.0986 Mrn
+Lx 3.7677 MX
+
+
+134-
+Rnd -0.578 MY
+Lx -3.1426 N2
+N0 3.6286 MX
+Rnd -0.5163 Mrv
+Rnd 2.2333 Mrv
+Lx 0.0475 MX
+BDx 1.1285 Mrv
+LPf 2.2551 N2
+
+
+135-
+LPf -1.2174 MX
+Age -2.231 Mfd
+Rnd 1.3957 Mrv
+LMx 2.9451 N2
+LMx 3.3115 Mrn
+Plr -2.6106 N1
+LPf -0.2556 N2
+LMx -0.968 N1
+N2 -2.5013 Mrn
+
+
+136-
+LMx 2.7174 Mrn
+Age -2.0983 Mrv
+Lx -1.4449 Mrv
+Ly 1.0094 Mrn
+LPf 0.7434 MX
+Plr 1.9256 Mfd
+LMx -2.457 N1
+N0 -1.77 MX
+Lx 1.3641 Mrv
+N1 -2.781 N2
+
+
+137-
+Plr 2.2003 Mfd
+Pfd 2.0174 N2
+N1 3.6664 N2
+N0 -1.6753 N1
+Age 0.9666 N2
+N1 -2.5707 Mfd
+Rnd 0.861 MY
+Lx 1.5324 MX
+Rnd -1.928 MX
+
+
+138-
+Plr 2.2003 Mfd
+Pfd 2.0174 N2
+N1 3.6664 N2
+N0 -1.6753 N1
+Age 0.9666 N2
+N1 -2.5707 Mfd
+Rnd 0.861 MY
+Lx 1.5324 MX
+Rnd -1.928 MX
+
+
+139-
+LPf 2.6523 MX
+BDd 1.2251 N1
+Ly -3.8655 N2
+BDx 0.9642 Mrn
+LPf 3.1989 N2
+
+
+140-
+BDd 1.7654 Mrn
+N0 0.5905 Mrn
+BDd 2.8967 N2
+Plr 1.7215 N2
+Pfd 2.4175 N1
+Age 0.2126 MX
+Pfd 0.9722 MX
+BDx -3.9621 Mrv
+Rnd 3.2923 MY
+Lx -2.5038 Mrn
+
+

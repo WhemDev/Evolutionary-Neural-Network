@@ -16,7 +16,7 @@ grid = [[0 for _ in range(64)] for _ in range(64)]
 generation = 0
 
 # Ajanları oluşturma
-agents = [Agent(random.randint(0, grid_size - 1), random.randint(0, grid_size - 1), grid=grid) for _ in range(num_agents)]
+agents = [Agent(random.randint(5, 59), random.randint(0, grid_size - 1), grid=grid) for _ in range(num_agents)]
 all_positions = {(agent.X, agent.Y) for agent in agents}
 
 # Gerçek simülasyon verilerini hesaplayan yardımcı fonksiyonlar
@@ -104,7 +104,7 @@ def onClick(event):
         ani.event_source.start()
 
 def log(generation, agents, count):
-    file_path = f'log/generation{generation}.txt'
+    file_path = f'log/GenerationData/generation{generation}.txt'
 
     # Dosyayı yazma modunda ('w') açmak
     num = 1
@@ -115,6 +115,11 @@ def log(generation, agents, count):
             if agent.survived:
                 file.write(f"{num}-\n{agent.genome}\n\n")
                 num += 1
+
+    file_path = f'log/surviveCount.txt'
+    with open(file_path, 'a') as file:
+        file.write(f"{count}\n")
+    
 
 
 
@@ -131,6 +136,8 @@ def update(frame):
         generation += 1
         frame=0
         current_frame = 0
+        grid = [[0 for _ in range(64)] for _ in range(64)]
+        agents = Generation.create_new_generation(agents, grid)
 
 
     # Her ajanın sinir ağını güncelle ve pozisyonunu değiştir
@@ -171,6 +178,7 @@ def update(frame):
     # Yazı alanındaki statları güncelle
     if targetAgent is not None:
         text.set_text(text_template.format(generation, current_frame, num_agents, grid_size, grid_size, in_rects_count, targetAgent.genome))
+        print(targetAgent.output_values)
     else:
         text.set_text(text_template.format(generation, current_frame, num_agents, grid_size, grid_size, in_rects_count, targetAgent))
 
@@ -181,6 +189,6 @@ fig.canvas.mpl_connect('key_press_event', on_Fig_click)
 
 
 # Animasyonu oluştur
-ani = FuncAnimation(fig, update, frames=2000, interval=100)
+ani = FuncAnimation(fig, update, frames=200000, interval=100)
 # Grafiği göster
 plt.show()

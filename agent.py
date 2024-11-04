@@ -57,8 +57,8 @@ class Agent:
         # Debugging: Toplam bağlantı sayısını ve output nöronlarına bağlantıları yazdır
         # self.network.print_debug_info()
 
-        output_values = self.network.get_output_values()
-        self.move(output_values)
+        self.output_values = self.network.get_output_values()
+        self.move(self.output_values)
 
 
     # OUTPUT NEURONS : 
