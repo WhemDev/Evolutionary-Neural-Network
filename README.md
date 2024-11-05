@@ -2,6 +2,8 @@
 
 EvoNet is a neural network simulation that combines evolutionary principles and dynamic neural adaptation. It allows creatures to evolve and adapt to different environmental conditions, refining their neural networks over generations to improve their survival and efficiency.
 
+I built it from scratch, so there are still many bugs and logical issues to resolve. I’m continuously working on refining the code to make it more stable and efficient.
+
 ## Features
 - **Evolutionary Algorithm**: Creatures optimize their neural connections and input handling to adapt to their surroundings.
 - **Dynamic Neural Architecture**: Creatures have the freedom to configure their neural networks, connecting input, internal, and output neurons as needed.
@@ -22,5 +24,7 @@ EvoNet is a neural network simulation that combines evolutionary principles and 
 3. Run main.py to start the simulation.
 
 Contributions
+
+Take a look at logs and generation images to see results!
 
 We welcome contributions! Feel free to open an issue or submit a pull request if you have ideas or improvements to share.
